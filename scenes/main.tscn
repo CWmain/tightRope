@@ -18,4 +18,5 @@ rock = ExtResource("2_0wfyh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(550, 486)
+enabled = false
 zoom = Vector2(2, 2)
