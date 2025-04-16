@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd4sq1nmqhuqo"]
+[gd_scene load_steps=3 format=3 uid="uid://dd4sq1nmqhuqo"]
 
 [ext_resource type="Script" uid="uid://b3rs48h57oyyf" path="res://objects/rockSpawner/rock_spawner.gd" id="1_mj1mj"]
+[ext_resource type="Texture2D" uid="uid://ywouxrvsm0ue" path="res://objects/rockSpawner/warning.png" id="2_c6kya"]
 
 [node name="RockSpawner" type="Node2D"]
 script = ExtResource("1_mj1mj")
+
+[node name="Warning" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("2_c6kya")
