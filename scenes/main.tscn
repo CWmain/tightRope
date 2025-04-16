@@ -6,17 +6,23 @@
 
 [node name="Main" type="Node2D"]
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(578, 391)
+polygon = PackedVector2Array(-28, -71, -17, -71, 18, 293, -83, 293)
+
 [node name="Walker" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(552, 683)
-
-[node name="Rock" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(436, 442)
 
 [node name="RockSpawner" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(2, 644)
 rock = ExtResource("2_0wfyh")
+spawnSpeed = Vector2(1000, -400)
+
+[node name="RockSpawner2" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(1136, 642)
+rock = ExtResource("2_0wfyh")
+spawnSpeed = Vector2(-1000, -400)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(550, 486)
-enabled = false
 zoom = Vector2(2, 2)

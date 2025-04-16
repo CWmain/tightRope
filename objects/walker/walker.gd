@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 		printerr("LOST")
 	
 	
-	rigid_body_2d.apply_torque(1000)
+	rigid_body_2d.apply_torque(2000)
 	if Input.is_action_pressed("Left"):
 		rigid_body_2d.apply_torque_impulse(-(torqueForce+bonusForce))
 		bonusForce += 100
