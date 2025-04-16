@@ -1,12 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3upb7t2hdfk1"]
+[gd_scene load_steps=10 format=3 uid="uid://b3upb7t2hdfk1"]
 
 [ext_resource type="PackedScene" uid="uid://cl57ajdyrwmbx" path="res://objects/walker/walker.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://des41i0ea0vuf" path="res://scenes/main.gd" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bccugi1acha5a" path="res://objects/rock/rock.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dd4sq1nmqhuqo" path="res://objects/rockSpawner/rock_spawner.tscn" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://ywouxrvsm0ue" path="res://objects/rockSpawner/warning.png" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://pf104i0ckybt" path="res://objects/sky/sky.tscn" id="5_tbgi4"]
 
+[sub_resource type="Animation" id="Animation_o6xl0"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walker:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(560, 926), Vector2(552, 683)]
+}
+
+[sub_resource type="Animation" id="Animation_tipki"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_85g3d"]
+_data = {
+&"RESET": SubResource("Animation_tipki"),
+&"intro": SubResource("Animation_o6xl0")
+}
+
 [node name="Main" type="Node2D"]
+script = ExtResource("1_tefeu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(550, 486)
@@ -28,7 +54,7 @@ position = Vector2(578, 391)
 polygon = PackedVector2Array(-28, -71, -17, -71, 18, 293, -83, 293)
 
 [node name="Walker" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(552, 683)
+position = Vector2(560, 926)
 
 [node name="RockSpawner" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(2, 644)
@@ -51,3 +77,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_85g3d")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
