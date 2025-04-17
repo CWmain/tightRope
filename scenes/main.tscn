@@ -178,10 +178,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CountIn" type="Label" parent="."]
-offset_left = 520.0
-offset_top = 282.0
-offset_right = 714.0
-offset_bottom = 457.0
+offset_left = -421.0
+offset_top = 291.0
+offset_right = -227.0
+offset_bottom = 466.0
 theme_override_constants/outline_size = 20
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 128
