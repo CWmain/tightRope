@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var torqueForce: float = 10000
+@export var torqueForce: float = 15000
+@export var bonusForceIncrease: float = 500
 @export var isActive: bool = false
 
 @onready var rigid_body_2d: RigidBody2D = $RigidBody2D
@@ -34,11 +35,11 @@ func _physics_process(delta: float) -> void:
 	#rigid_body_2d.apply_torque(2000)
 	if Input.is_action_pressed("Left"):
 		rigid_body_2d.apply_torque_impulse(-(torqueForce+bonusForce))
-		bonusForce += 100
+		bonusForce += bonusForceIncrease
 	
 	if Input.is_action_pressed("Right"):
 		rigid_body_2d.apply_torque_impulse(torqueForce+bonusForce)
-		bonusForce += 100
+		bonusForce += bonusForceIncrease
 
 	if Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
 		bonusForce = 0

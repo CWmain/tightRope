@@ -162,7 +162,7 @@ layout_mode = 1
 color = Color(0, 0, 0, 1)
 
 [node name="Rope" type="AnimatedSprite2D" parent="."]
-position = Vector2(600, -114)
+position = Vector2(1160, -128)
 rotation = -1.57079
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_eb6dy")
