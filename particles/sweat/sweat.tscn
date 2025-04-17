@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1y2ot0jxpwm1"]
+
+[ext_resource type="Texture2D" uid="uid://cajfcsgs2o7vs" path="res://particles/sweat/sweat.png" id="1_oxonn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oxonn"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="sweat" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_oxonn")
+amount = 3
+texture = ExtResource("1_oxonn")
+explosiveness = 1.0
+initial_velocity_min = 300.0
+initial_velocity_max = 500.0
+angular_velocity_min = 100.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+anim_speed_min = 1.0
+anim_speed_max = 1.0
