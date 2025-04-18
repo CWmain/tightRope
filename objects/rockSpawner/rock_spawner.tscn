@@ -46,7 +46,7 @@ script = ExtResource("1_mj1mj")
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_527xd")
 autoplay = "default"
-frame_progress = 0.714658
+frame_progress = 0.358309
 
 [node name="attackTimer" type="Timer" parent="."]
 one_shot = true

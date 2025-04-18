@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://de3xboh3elk77"]
+
+[ext_resource type="Script" uid="uid://ljnofukw4076" path="res://objects/gameManager/game_manager.gd" id="1_bvufx"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_bvufx")
+
+[node name="SpawnStuff" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="SpawnStuff" to="." method="_on_spawn_stuff_timeout"]

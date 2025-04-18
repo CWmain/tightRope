@@ -4,7 +4,7 @@ extends RigidBody2D
 
 
 func _process(delta: float) -> void:
-	if position.y > 200 and !clank_sound.playing:
+	if position.y > 800 and !clank_sound.playing:
 		queue_free()
 
 func _on_body_entered(body: Node) -> void:

@@ -41,13 +41,13 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bpl7"]
-radius = 90.471
+radius = 98.4838
 height = 359.469
 
 [node name="scissors" type="RigidBody2D"]
 mass = 20.0
 contact_monitor = true
-max_contacts_reported = 2
+max_contacts_reported = 1
 script = ExtResource("1_v7ne4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

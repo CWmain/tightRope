@@ -49,5 +49,4 @@ func _physics_process(delta: float) -> void:
 		lastDirection = 1
 
 	if !Input.is_action_pressed("Left") and !Input.is_action_pressed("Right"):
-		print(bonusForce)
 		bonusForce = move_toward(bonusForce, 0, bonusForceIncrease)

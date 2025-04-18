@@ -3,7 +3,7 @@ extends RigidBody2D
 @onready var hit_sound: AudioStreamPlayer = $HitSound
 
 func _process(delta: float) -> void:
-	if position.y > 200 and !hit_sound.playing:
+	if position.y > 800 and !hit_sound.playing:
 		queue_free()
 
 func _on_body_entered(body: Node) -> void:
