@@ -1,11 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd4sq1nmqhuqo"]
+[gd_scene load_steps=8 format=3 uid="uid://dd4sq1nmqhuqo"]
 
 [ext_resource type="Script" uid="uid://b3rs48h57oyyf" path="res://objects/rockSpawner/rock_spawner.gd" id="1_mj1mj"]
-[ext_resource type="Texture2D" uid="uid://ywouxrvsm0ue" path="res://objects/rockSpawner/warning.png" id="2_c6kya"]
+[ext_resource type="Texture2D" uid="uid://bnhgbr5ewxsno" path="res://objects/warning/editedWarning.png" id="2_c6kya"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o36co"]
+atlas = ExtResource("2_c6kya")
+region = Rect2(0, 0, 800, 841)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy8ch"]
+atlas = ExtResource("2_c6kya")
+region = Rect2(810, 0, 800, 841)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kg8s"]
+atlas = ExtResource("2_c6kya")
+region = Rect2(1620, 0, 800, 841)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa2u1"]
+atlas = ExtResource("2_c6kya")
+region = Rect2(2430, 0, 800, 841)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_527xd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o36co")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy8ch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kg8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa2u1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="RockSpawner" type="Node2D"]
 script = ExtResource("1_mj1mj")
 
-[node name="Warning" type="Sprite2D" parent="."]
-position = Vector2(0, -5)
-texture = ExtResource("2_c6kya")
+[node name="Warning" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_527xd")
+autoplay = "default"
+frame_progress = 0.236985

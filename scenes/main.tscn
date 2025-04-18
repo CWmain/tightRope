@@ -177,6 +177,7 @@ position = Vector2(560, 926)
 [node name="RockSpawner" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(2, 644)
 rock = ExtResource("6_tipki")
+globalWarningLocation = Vector2(600, 500)
 spawnSpeed = Vector2(1000, -400)
 
 [node name="RockSpawner2" parent="." instance=ExtResource("3_sugp2")]
