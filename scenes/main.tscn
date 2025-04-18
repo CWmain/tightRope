@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dd4sq1nmqhuqo" path="res://objects/rockSpawner/rock_spawner.tscn" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://ywouxrvsm0ue" path="res://objects/rockSpawner/warning.png" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://pf104i0ckybt" path="res://objects/sky/sky.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://cy5ni16xupev7" path="res://objects/metal/metal.tscn" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://cgxwpim6cajfw" path="res://objects/scissors/scissors.tscn" id="6_tipki"]
 [ext_resource type="Texture2D" uid="uid://di0m7qhsm0f2" path="res://objects/rope/editedRope.png" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cgsmcsdbsoqtg" path="res://objects/tape/tape.tscn" id="7_tipki"]
 

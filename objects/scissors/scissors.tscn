@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgxwpim6cajfw"]
+
+[ext_resource type="Texture2D" uid="uid://d1hr8ukgdurgf" path="res://objects/scissors/editoredScissors.png" id="1_8k2pb"]
+[ext_resource type="Script" uid="uid://cj7thridukkto" path="res://objects/scissors/scissors.gd" id="1_v7ne4"]
+[ext_resource type="AudioStream" uid="uid://1y5kcsiqi81w" path="res://objects/scissors/scissors.mp3" id="3_chhh0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7ne4"]
+atlas = ExtResource("1_8k2pb")
+region = Rect2(100, 0, 2062, 3200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chhh0"]
+atlas = ExtResource("1_8k2pb")
+region = Rect2(2212, 0, 2062, 3200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6vck"]
+atlas = ExtResource("1_8k2pb")
+region = Rect2(4324, 0, 2062, 3200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q76oh"]
+atlas = ExtResource("1_8k2pb")
+region = Rect2(6436, 0, 2062, 3200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_demlm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7ne4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chhh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6vck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q76oh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bpl7"]
+radius = 90.471
+height = 359.469
+
+[node name="scissors" type="RigidBody2D"]
+mass = 20.0
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_v7ne4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_demlm")
+autoplay = "default"
+frame_progress = 0.0096025
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-18, 2)
+rotation = 0.408419
+shape = SubResource("CapsuleShape2D_1bpl7")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_chhh0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
