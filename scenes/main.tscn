@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3upb7t2hdfk1"]
+[gd_scene load_steps=16 format=3 uid="uid://b3upb7t2hdfk1"]
 
 [ext_resource type="PackedScene" uid="uid://cl57ajdyrwmbx" path="res://objects/walker/walker.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://des41i0ea0vuf" path="res://scenes/main.gd" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dd4sq1nmqhuqo" path="res://objects/rockSpawner/rock_spawner.tscn" id="3_sugp2"]
-[ext_resource type="Texture2D" uid="uid://ywouxrvsm0ue" path="res://objects/rockSpawner/warning.png" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://pf104i0ckybt" path="res://objects/sky/sky.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://cgxwpim6cajfw" path="res://objects/scissors/scissors.tscn" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://cy5ni16xupev7" path="res://objects/metal/metal.tscn" id="6_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://di0m7qhsm0f2" path="res://objects/rope/editedRope.png" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cgsmcsdbsoqtg" path="res://objects/tape/tape.tscn" id="7_tipki"]
 
@@ -150,7 +149,6 @@ position = Vector2(550, 486)
 zoom = Vector2(2, 2)
 
 [node name="Control" type="Control" parent="Camera2D"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -553.0
@@ -176,18 +174,15 @@ position = Vector2(560, 926)
 
 [node name="RockSpawner" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(2, 644)
-rock = ExtResource("6_tipki")
-globalWarningLocation = Vector2(600, 500)
+rock = ExtResource("6_o6xl0")
+globalWarningLocation = Vector2(310, 580)
 spawnSpeed = Vector2(1000, -400)
 
 [node name="RockSpawner2" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(952, 638)
 rock = ExtResource("7_tipki")
+globalWarningLocation = Vector2(780, 580)
 spawnSpeed = Vector2(-1000, -400)
-
-[node name="Warning" type="Sprite2D" parent="."]
-position = Vector2(302, 587)
-texture = ExtResource("4_jyhfs")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

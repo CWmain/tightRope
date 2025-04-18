@@ -46,4 +46,9 @@ script = ExtResource("1_mj1mj")
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_527xd")
 autoplay = "default"
-frame_progress = 0.236985
+frame_progress = 0.714658
+
+[node name="attackTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="attackTimer" to="." method="_on_attack_timer_timeout"]
