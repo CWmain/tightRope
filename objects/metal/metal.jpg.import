@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1gwnplhacxt1"
-path="res://.godot/imported/metal.jpg-2761c162a1e451d8291366fd85d18616.ctex"
+path="res://.godot/imported/metal.jpg-3a336e052ab24bedc6013353036b6a12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/rock/metal.jpg"
-dest_files=["res://.godot/imported/metal.jpg-2761c162a1e451d8291366fd85d18616.ctex"]
+source_file="res://objects/metal/metal.jpg"
+dest_files=["res://.godot/imported/metal.jpg-3a336e052ab24bedc6013353036b6a12.ctex"]
 
 [params]
 
