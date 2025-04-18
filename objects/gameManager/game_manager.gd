@@ -1,6 +1,6 @@
 extends Node
 
-# This will manage the timings of object spawns
+# This will manage the timings of object spawns, points of the player
 
 
 @export_category("Projectiles")
@@ -17,7 +17,12 @@ extends Node
 @export var bottomLeft: Spawner
 @export var bottomRight: Spawner
 
+@export_category("Points")
+@export var pointsPerSecond: int = 10
+
 var chanceToFire: float = 0.1
+var points: int = 0
+
 
 func _on_spawn_stuff_timeout() -> void:
 	if randf() <= chanceToFire:
@@ -31,3 +36,6 @@ func _on_spawn_stuff_timeout() -> void:
 
 func _on_increment_chance_to_fire_timeout() -> void:
 	chanceToFire = chanceToFire+0.1 if chanceToFire <= 0.9 else 1
+
+func _on_earn_points_timeout() -> void:
+	points += pointsPerSecond

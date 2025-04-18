@@ -13,5 +13,9 @@ autostart = true
 wait_time = 10.0
 autostart = true
 
+[node name="EarnPoints" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="SpawnStuff" to="." method="_on_spawn_stuff_timeout"]
 [connection signal="timeout" from="IncrementChanceToFire" to="." method="_on_increment_chance_to_fire_timeout"]
+[connection signal="timeout" from="EarnPoints" to="." method="_on_earn_points_timeout"]
