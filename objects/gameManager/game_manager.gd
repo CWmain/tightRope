@@ -1,5 +1,5 @@
 extends Node
-
+class_name GameManager
 # This will manage the timings of object spawns, points of the player
 
 
@@ -23,6 +23,7 @@ extends Node
 var chanceToFire: float = 0.1
 var points: int = 0
 
+signal newScore
 
 func _on_spawn_stuff_timeout() -> void:
 	if randf() <= chanceToFire:
@@ -39,3 +40,4 @@ func _on_increment_chance_to_fire_timeout() -> void:
 
 func _on_earn_points_timeout() -> void:
 	points += pointsPerSecond
+	newScore.emit()

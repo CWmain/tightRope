@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4nhjb3el55ox"]
+
+[ext_resource type="Script" uid="uid://b2dhw3vd0pbcm" path="res://objects/pointsDisplay/points_display.gd" id="1_bpwn7"]
+[ext_resource type="PackedScene" uid="uid://cauo3jwoqmx1j" path="res://objects/pointsDisplay/numbers/number.tscn" id="2_t03jk"]
+
+[node name="pointsDisplay" type="Node2D"]
+script = ExtResource("1_bpwn7")
+number = ExtResource("2_t03jk")

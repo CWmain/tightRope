@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cauo3jwoqmx1j"]
+
+[ext_resource type="Texture2D" uid="uid://cs08i2b6hkg2l" path="res://objects/pointsDisplay/tempNumbers.png" id="1_456y1"]
+[ext_resource type="Script" uid="uid://b3gj40cd0wov6" path="res://objects/pointsDisplay/numbers/number.gd" id="2_dpn5g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpn5g"]
+atlas = ExtResource("1_456y1")
+region = Rect2(0, 0, 32, 32)
+
+[node name="Number" type="Sprite2D"]
+texture = SubResource("AtlasTexture_dpn5g")
+script = ExtResource("2_dpn5g")
