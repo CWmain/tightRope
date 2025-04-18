@@ -4,6 +4,9 @@ extends Node
 
 
 @export_category("Projectiles")
+@export var projectiles: Array[PackedScene]
+
+#TODO: Remove if un-needed
 @export var metal: PackedScene
 @export var tape: PackedScene
 @export var scissors: PackedScene
@@ -14,10 +17,12 @@ extends Node
 @export var bottomLeft: Spawner
 @export var bottomRight: Spawner
 
-
-
 func _on_spawn_stuff_timeout() -> void:
-	topLeft.createProjectile(scissors)
-	#topRight.createProjectile(metal)
-	#bottomRight.createProjectile(metal)
-	bottomLeft.createProjectile(scissors)
+	if randf() > 0.7:
+		topLeft.createProjectile(projectiles[round(randf()*2)])
+	if randf() > 0.7:
+		topRight.createProjectile(projectiles[round(randf()*2)])
+	if randf() > 0.7:
+		bottomRight.createProjectile(projectiles[round(randf()*2)])
+	if randf() > 0.7:
+		bottomLeft.createProjectile(projectiles[round(randf()*2)])

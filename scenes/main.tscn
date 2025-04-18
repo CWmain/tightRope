@@ -217,6 +217,7 @@ libraries = {
 }
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("topLeft", "topRight", "bottomLeft", "bottomRight") instance=ExtResource("6_tefeu")]
+projectiles = Array[PackedScene]([ExtResource("6_o6xl0"), ExtResource("7_tipki"), ExtResource("7_85g3d")])
 metal = ExtResource("6_o6xl0")
 tape = ExtResource("7_tipki")
 scissors = ExtResource("7_85g3d")
