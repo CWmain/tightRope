@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c68r4wppxkir5"
-path="res://.godot/imported/warningIcon.jpg-2daa0096334ec6d096f2f55ccda862be.ctex"
+uid="uid://5t55w0d3w0ll"
+path="res://.godot/imported/scissors.jpg-1be7ec386e25516732ff225c568d436b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/rock/warningIcon.jpg"
-dest_files=["res://.godot/imported/warningIcon.jpg-2daa0096334ec6d096f2f55ccda862be.ctex"]
+source_file="res://objects/scissors/scissors.jpg"
+dest_files=["res://.godot/imported/scissors.jpg-1be7ec386e25516732ff225c568d436b.ctex"]
 
 [params]
 
