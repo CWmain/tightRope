@@ -30,4 +30,4 @@ func _on_spawn_stuff_timeout() -> void:
 		bottomLeft.createProjectile(projectiles[round(randf()*2)])
 
 func _on_increment_chance_to_fire_timeout() -> void:
-	chanceToFire = chanceToFire+0.1 if chanceToFire < 1 else 1
+	chanceToFire = chanceToFire+0.1 if chanceToFire <= 0.9 else 1
