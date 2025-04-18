@@ -9,4 +9,9 @@ script = ExtResource("1_bvufx")
 wait_time = 5.0
 autostart = true
 
+[node name="IncrementChanceToFire" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="timeout" from="SpawnStuff" to="." method="_on_spawn_stuff_timeout"]
+[connection signal="timeout" from="IncrementChanceToFire" to="." method="_on_increment_chance_to_fire_timeout"]

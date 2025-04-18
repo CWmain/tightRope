@@ -17,12 +17,17 @@ extends Node
 @export var bottomLeft: Spawner
 @export var bottomRight: Spawner
 
+var chanceToFire: float = 0.1
+
 func _on_spawn_stuff_timeout() -> void:
-	if randf() > 0.7:
+	if randf() <= chanceToFire:
 		topLeft.createProjectile(projectiles[round(randf()*2)])
-	if randf() > 0.7:
+	if randf() <= chanceToFire:
 		topRight.createProjectile(projectiles[round(randf()*2)])
-	if randf() > 0.7:
+	if randf() <= chanceToFire:
 		bottomRight.createProjectile(projectiles[round(randf()*2)])
-	if randf() > 0.7:
+	if randf() <= chanceToFire:
 		bottomLeft.createProjectile(projectiles[round(randf()*2)])
+
+func _on_increment_chance_to_fire_timeout() -> void:
+	chanceToFire = chanceToFire+0.1 if chanceToFire < 1 else 1
