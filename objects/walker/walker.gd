@@ -10,6 +10,7 @@ extends Node2D
 @onready var left_sweat: CPUParticles2D = $RigidBody2D/LeftSweat
 
 var bonusForce: float = 0
+var lastDirection: int = 0
 
 signal fallen
 
@@ -34,12 +35,19 @@ func _physics_process(delta: float) -> void:
 	
 	#rigid_body_2d.apply_torque(2000)
 	if Input.is_action_pressed("Left"):
+		if lastDirection == 1:
+			bonusForce = 0
 		rigid_body_2d.apply_torque_impulse(-(torqueForce+bonusForce))
 		bonusForce += bonusForceIncrease
+		lastDirection = -1
 	
 	if Input.is_action_pressed("Right"):
+		if lastDirection == -1:
+			bonusForce = 0
 		rigid_body_2d.apply_torque_impulse(torqueForce+bonusForce)
 		bonusForce += bonusForceIncrease
+		lastDirection = 1
 
-	if Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
-		bonusForce = 0
+	if !Input.is_action_pressed("Left") and !Input.is_action_pressed("Right"):
+		print(bonusForce)
+		bonusForce = move_toward(bonusForce, 0, bonusForceIncrease)
