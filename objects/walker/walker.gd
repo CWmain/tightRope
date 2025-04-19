@@ -9,6 +9,8 @@ extends Node2D
 @onready var right_sweat: CPUParticles2D = $RigidBody2D/RightSweat
 @onready var left_sweat: CPUParticles2D = $RigidBody2D/LeftSweat
 
+@onready var walker_texture: AnimatedSprite2D = $RigidBody2D/WalkerTexture
+
 var bonusForce: float = 0
 var lastDirection: int = 0
 
@@ -18,8 +20,11 @@ signal fallen
 
 func _physics_process(delta: float) -> void:
 	if !isActive:
+		walker_texture.speed_scale = 0
 		rigid_body_2d.angular_velocity = 0
 		return
+		
+	walker_texture.speed_scale = 1
 	
 	if rigid_body_2d.rotation > PI/4 || rigid_body_2d.rotation < -PI/4:
 		right_sweat.emitting = true
