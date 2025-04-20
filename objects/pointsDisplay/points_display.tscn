@@ -6,3 +6,4 @@
 [node name="pointsDisplay" type="Node2D"]
 script = ExtResource("1_bpwn7")
 number = ExtResource("2_t03jk")
+value = 10

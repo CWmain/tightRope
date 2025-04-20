@@ -20,6 +20,9 @@ class_name GameManager
 @export_category("Points")
 @export var pointsPerSecond: int = 10
 
+@export_category("Display")
+@export var pointsDisplay: PointsDisplay
+
 var chanceToFire: float = 0.1
 var points: int = 0
 
@@ -40,4 +43,5 @@ func _on_increment_chance_to_fire_timeout() -> void:
 
 func _on_earn_points_timeout() -> void:
 	points += pointsPerSecond
+	pointsDisplay.value = points
 	newScore.emit()

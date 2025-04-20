@@ -5,7 +5,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dpn5g"]
 atlas = ExtResource("1_456y1")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(32, 0, 32, 32)
 
 [node name="Number" type="Sprite2D"]
 texture = SubResource("AtlasTexture_dpn5g")
