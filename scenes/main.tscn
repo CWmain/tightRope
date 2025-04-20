@@ -220,6 +220,7 @@ libraries = {
 
 [node name="pointsDisplay" parent="." instance=ExtResource("6_choun")]
 position = Vector2(736, 346)
+scale = Vector2(0.1, 0.1)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("topLeft", "topRight", "bottomLeft", "bottomRight", "pointsDisplay") instance=ExtResource("6_tefeu")]
 projectiles = Array[PackedScene]([ExtResource("6_o6xl0"), ExtResource("7_tipki"), ExtResource("7_85g3d")])

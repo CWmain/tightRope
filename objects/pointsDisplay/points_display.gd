@@ -3,7 +3,8 @@ extends Node2D
 class_name PointsDisplay
 
 
-@export var number: PackedScene
+@export var digit: PackedScene
+@export var digitSpacing: float = 32.0
 @export var value: int:
 	set(a):
 		value = a
@@ -21,15 +22,14 @@ func updateScore()->void:
 	var targetNumber: int = value
 	var offset = 0
 	while targetNumber >= 10:
-		var newNumber: DrawnNumber = number.instantiate()
-		newNumber.texture = newNumber.texture.duplicate()
-		newNumber.set_number(targetNumber%10)
-		newNumber.position.x = offset
-		add_child(newNumber)
-		offset -= 32
+		var newDigit: DrawnNumber = digit.instantiate()
+		newDigit.set_number(targetNumber%10)
+		newDigit.position.x = offset
+		add_child(newDigit)
+		offset -= digitSpacing
 		targetNumber /= 10
 
-	var newNumber = number.instantiate()
-	newNumber.set_number(targetNumber%10)
-	newNumber.position.x = offset
-	add_child(newNumber)
+	var newDigit = digit.instantiate()
+	newDigit.set_number(targetNumber%10)
+	newDigit.position.x = offset
+	add_child(newDigit)
