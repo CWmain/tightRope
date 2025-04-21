@@ -49,30 +49,6 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_tipki"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("pointsDisplay:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(736, 346)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("pointsDisplay:paused")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_o6xl0"]
 resource_name = "intro"
@@ -209,7 +185,8 @@ layout_mode = 1
 color = Color(0, 0, 0, 1)
 
 [node name="Rope" type="AnimatedSprite2D" parent="."]
-position = Vector2(540, 388)
+position = Vector2(600, -114)
+rotation = -1.57079
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_eb6dy")
 autoplay = "default"
@@ -217,7 +194,7 @@ frame_progress = 0.473907
 speed_scale = 0.0
 
 [node name="Walker" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(552, 683)
+position = Vector2(560, 926)
 
 [node name="BottomLeftSpawner" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(2, 644)
@@ -251,7 +228,7 @@ theme_override_font_sizes/font_size = 128
 text = "GO"
 
 [node name="AnimatedCountIn" parent="." instance=ExtResource("6_choun")]
-position = Vector2(553, 390)
+position = Vector2(-390, 390)
 scale = Vector2(0.3, 0.3)
 value = 3
 paused = false
@@ -266,7 +243,7 @@ libraries = {
 }
 
 [node name="pointsDisplay" parent="." instance=ExtResource("6_choun")]
-position = Vector2(736, 346)
+position = Vector2(301, 718)
 scale = Vector2(0.1, 0.1)
 value = 0
 paused = true

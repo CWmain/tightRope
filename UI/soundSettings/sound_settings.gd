@@ -2,9 +2,9 @@ extends Control
 
 signal closeMenu
 
-@onready var master: Control = $VBoxContainer/Master
-@onready var sfx: Control = $VBoxContainer/SFX
-@onready var music: Control = $VBoxContainer/Music
+@onready var master: Control = %Master
+@onready var sfx: Control = %SFX
+@onready var music: Control = %Music
 
 func _ready() -> void:
 	master.value = db_to_linear(AudioServer.get_bus_volume_db(0))
