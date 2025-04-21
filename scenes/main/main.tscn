@@ -248,7 +248,7 @@ scale = Vector2(0.1, 0.1)
 value = 0
 paused = true
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("topLeft", "topRight", "bottomLeft", "bottomRight", "pointsDisplay") instance=ExtResource("6_tefeu")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("topLeft", "topRight", "bottomLeft", "bottomRight", "pointsDisplay", "walker") instance=ExtResource("6_tefeu")]
 projectiles = Array[PackedScene]([ExtResource("6_o6xl0"), ExtResource("7_tipki"), ExtResource("7_85g3d")])
 metal = ExtResource("6_o6xl0")
 tape = ExtResource("7_tipki")
@@ -258,5 +258,6 @@ topRight = NodePath("../TopRightSpawner")
 bottomLeft = NodePath("../BottomLeftSpawner")
 bottomRight = NodePath("../BottomRightSpawner")
 pointsDisplay = NodePath("../pointsDisplay")
+walker = NodePath("../Walker")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

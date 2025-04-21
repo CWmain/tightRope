@@ -23,13 +23,22 @@ class_name GameManager
 @export_category("Display")
 @export var pointsDisplay: PointsDisplay
 
+@export_category("Other")
+@export var walker: Walker
+
+
 @onready var earn_points: Timer = $EarnPoints
+@onready var increment_chance_to_fire: Timer = $IncrementChanceToFire
+@onready var spawn_stuff: Timer = $SpawnStuff
 
 
 var chanceToFire: float = 0.1
 var points: int = 0
 
 signal newScore
+
+func _ready() -> void:
+	walker.fallen.connect(endGame)
 
 func _on_spawn_stuff_timeout() -> void:
 	if randf() <= chanceToFire:
@@ -51,3 +60,10 @@ func _on_earn_points_timeout() -> void:
 
 func _on_game_start_delay_timeout() -> void:
 	earn_points.start()
+
+func endGame() -> void:
+	earn_points.stop()
+	spawn_stuff.stop()
+	increment_chance_to_fire.stop()
+	walker.process_mode = Node.PROCESS_MODE_DISABLED
+	print("Game is ended do more stuff")

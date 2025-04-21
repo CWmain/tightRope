@@ -1,4 +1,5 @@
 extends Node2D
+class_name Walker
 
 @export var torqueForce: float = 15000
 @export var bonusForceIncrease: float = 500
@@ -33,9 +34,7 @@ func _physics_process(delta: float) -> void:
 		left_sweat.emitting = false
 	
 	if rigid_body_2d.rotation > PI/2 || rigid_body_2d.rotation < -PI/2:
-		fallen.emit()
-		printerr("LOST")
-	
+		fallen.emit()	
 	
 	#rigid_body_2d.apply_torque(2000)
 	if Input.is_action_pressed("Left"):
