@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmos5vljxb12"]
+
+[ext_resource type="Script" uid="uid://epbw065ttc1b" path="res://UI/sliderBar/slider_bar.gd" id="1_aqy8m"]
+[ext_resource type="Texture2D" uid="uid://d1av8pn5d5lbs" path="res://UI/sliderBar/barFill.png" id="2_6ymq2"]
+[ext_resource type="Texture2D" uid="uid://chln3w5ra2pfm" path="res://UI/sliderBar/emptyBarStill.png" id="2_ef4nd"]
+[ext_resource type="Shader" uid="uid://dm2o4uoqq0jtj" path="res://UI/sliderBar/slider_bar.gdshader" id="3_25pyd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fck3d"]
+shader = ExtResource("3_25pyd")
+shader_parameter/percent = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7fvo"]
+atlas = ExtResource("2_6ymq2")
+region = Rect2(0, 0, 1400, 425)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7occ"]
+atlas = ExtResource("2_6ymq2")
+region = Rect2(0, 425, 1400, 425)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18fhk"]
+atlas = ExtResource("2_6ymq2")
+region = Rect2(0, 850, 1400, 425)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvdqw"]
+atlas = ExtResource("2_6ymq2")
+region = Rect2(0, 1275, 1400, 425)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhew2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7fvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7occ")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18fhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvdqw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SliderBar" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aqy8m")
+
+[node name="EmptyBar" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_ef4nd")
+
+[node name="FullBar" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_fck3d")
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_bhew2")
+autoplay = "default"
+frame_progress = 0.092696
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

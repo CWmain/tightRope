@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c77du4kt8gbaf"
-path="res://.godot/imported/emptyBar.png-9a1e749d1a4e0e3e908bba909394ea08.ctex"
+uid="uid://d1av8pn5d5lbs"
+path="res://.godot/imported/barFill.png-822dbd1e65ad757a141e5e8fc0fa29f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/sliderBar/emptyBar.png"
-dest_files=["res://.godot/imported/emptyBar.png-9a1e749d1a4e0e3e908bba909394ea08.ctex"]
+source_file="res://UI/sliderBar/barFill.png"
+dest_files=["res://.godot/imported/barFill.png-822dbd1e65ad757a141e5e8fc0fa29f2.ctex"]
 
 [params]
 

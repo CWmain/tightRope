@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://b3upb7t2hdfk1"]
 
 [ext_resource type="PackedScene" uid="uid://cl57ajdyrwmbx" path="res://objects/walker/walker.tscn" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://des41i0ea0vuf" path="res://scenes/main.gd" id="1_tefeu"]
+[ext_resource type="Script" uid="uid://des41i0ea0vuf" path="res://scenes/main/main.gd" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dd4sq1nmqhuqo" path="res://objects/rockSpawner/rock_spawner.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://pf104i0ckybt" path="res://objects/sky/sky.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d4nhjb3el55ox" path="res://objects/pointsDisplay/points_display.tscn" id="6_choun"]

@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	if !isActive:
 		walker_texture.speed_scale = 0
 		rigid_body_2d.angular_velocity = 0
+		rigid_body_2d.rotation = 0
 		return
 		
 	walker_texture.speed_scale = 1
