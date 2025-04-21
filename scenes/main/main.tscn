@@ -49,6 +49,30 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_tipki"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pointsDisplay:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(736, 346)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pointsDisplay:paused")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_o6xl0"]
 resource_name = "intro"
@@ -137,6 +161,30 @@ tracks/6/keys = {
 "update": 1,
 "values": [3, 2, 1, 0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("pointsDisplay:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(301, 718), Vector2(818, 346)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("pointsDisplay:paused")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_85g3d"]
 _data = {
@@ -161,8 +209,7 @@ layout_mode = 1
 color = Color(0, 0, 0, 1)
 
 [node name="Rope" type="AnimatedSprite2D" parent="."]
-position = Vector2(600, -114)
-rotation = -1.57079
+position = Vector2(540, 388)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_eb6dy")
 autoplay = "default"
@@ -170,7 +217,7 @@ frame_progress = 0.473907
 speed_scale = 0.0
 
 [node name="Walker" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(560, 926)
+position = Vector2(552, 683)
 
 [node name="BottomLeftSpawner" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(2, 644)
@@ -178,13 +225,13 @@ globalWarningLocation = Vector2(310, 580)
 spawnSpeed = Vector2(1000, -400)
 
 [node name="TopLeftSpawner" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(2, 384)
-globalWarningLocation = Vector2(310, 400)
+position = Vector2(2, 410)
+globalWarningLocation = Vector2(310, 410)
 spawnSpeed = Vector2(1000, 0)
 
 [node name="TopRightSpawner" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(953, 390)
-globalWarningLocation = Vector2(780, 400)
+position = Vector2(953, 410)
+globalWarningLocation = Vector2(780, 410)
 spawnSpeed = Vector2(-1000, 0)
 
 [node name="BottomRightSpawner" parent="." instance=ExtResource("3_sugp2")]
@@ -204,9 +251,10 @@ theme_override_font_sizes/font_size = 128
 text = "GO"
 
 [node name="AnimatedCountIn" parent="." instance=ExtResource("6_choun")]
-position = Vector2(-390, 390)
+position = Vector2(553, 390)
 scale = Vector2(0.3, 0.3)
 value = 3
+paused = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(550, 486)
@@ -221,6 +269,7 @@ libraries = {
 position = Vector2(736, 346)
 scale = Vector2(0.1, 0.1)
 value = 0
+paused = true
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("topLeft", "topRight", "bottomLeft", "bottomRight", "pointsDisplay") instance=ExtResource("6_tefeu")]
 projectiles = Array[PackedScene]([ExtResource("6_o6xl0"), ExtResource("7_tipki"), ExtResource("7_85g3d")])

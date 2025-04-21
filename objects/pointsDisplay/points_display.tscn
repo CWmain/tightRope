@@ -8,3 +8,4 @@ script = ExtResource("1_bpwn7")
 digit = ExtResource("2_t03jk")
 digitSpacing = 400.0
 value = 10
+paused = null

@@ -10,9 +10,24 @@ class_name PointsDisplay
 		value = a
 		updateScore()
 		
+@export var paused: bool = true:
+	set(value):
+		paused = value
+		if paused:
+			pauseAnimation()
+		else:
+			playAnimation()
 
 # Given a number we need to find each value
 # This can be done by % 10, then select the corresponding image and place on screen
+
+func pauseAnimation() -> void:
+	for child: AnimatedSprite2D in get_children():
+		child.speed_scale = 0
+		
+func playAnimation() -> void:
+	for child: AnimatedSprite2D in get_children():
+		child.speed_scale = 1
 
 func updateScore()->void:
 	#Delete all old children
@@ -24,6 +39,8 @@ func updateScore()->void:
 	while targetNumber >= 10:
 		var newDigit: DrawnNumber = digit.instantiate()
 		newDigit.set_number(targetNumber%10)
+		if paused:
+			newDigit.speed_scale = 0
 		newDigit.position.x = offset
 		add_child(newDigit)
 		offset -= digitSpacing
@@ -31,5 +48,7 @@ func updateScore()->void:
 
 	var newDigit = digit.instantiate()
 	newDigit.set_number(targetNumber%10)
+	if paused:
+		newDigit.speed_scale = 0
 	newDigit.position.x = offset
 	add_child(newDigit)
