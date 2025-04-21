@@ -27,17 +27,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Master" parent="VBoxContainer" instance=ExtResource("1_40066")]
-custom_minimum_size = Vector2(560, 145)
 layout_mode = 2
 maxValue = 2.0
 
 [node name="SFX" parent="VBoxContainer" instance=ExtResource("1_40066")]
-custom_minimum_size = Vector2(560, 145)
 layout_mode = 2
 maxValue = 2.0
 
 [node name="Music" parent="VBoxContainer" instance=ExtResource("1_40066")]
-custom_minimum_size = Vector2(560, 145)
 layout_mode = 2
 maxValue = 2.0
 
@@ -45,4 +42,7 @@ maxValue = 2.0
 layout_mode = 2
 text = "Back"
 
+[connection signal="valueUpdated" from="VBoxContainer/Master" to="." method="_on_master_value_updated"]
+[connection signal="valueUpdated" from="VBoxContainer/SFX" to="." method="_on_sfx_value_updated"]
+[connection signal="valueUpdated" from="VBoxContainer/Music" to="." method="_on_music_value_updated"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

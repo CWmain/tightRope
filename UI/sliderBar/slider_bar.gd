@@ -14,7 +14,7 @@ extends Control
 			updateBar()
 @export var maxValue: float = 100:
 	set(a):
-		maxValue = a if a != 0 else 1
+		maxValue = a if a != 0 else 1.0
 		updateBar()
 
 @export var step: float = 0.01
@@ -58,8 +58,3 @@ func _on_gui_input(event: InputEvent) -> void:
 	elif event.is_action_released("MousePress"):
 		trackMouse = false
 		valueUpdated.emit()
-
-
-func _on_mouse_exited() -> void:
-	trackMouse = false
-	valueUpdated.emit()

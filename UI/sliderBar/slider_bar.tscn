@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://chln3w5ra2pfm" path="res://UI/sliderBar/emptyBarStill.png" id="2_ef4nd"]
 [ext_resource type="Shader" uid="uid://dm2o4uoqq0jtj" path="res://UI/sliderBar/slider_bar.gdshader" id="3_25pyd"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fck3d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqy8m"]
 shader = ExtResource("3_25pyd")
-shader_parameter/percent = 1.0
+shader_parameter/percent = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7fvo"]
 atlas = ExtResource("2_6ymq2")
@@ -46,6 +46,7 @@ animations = [{
 }]
 
 [node name="SliderBar" type="Control"]
+custom_minimum_size = Vector2(560, 145)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -57,15 +58,16 @@ grow_vertical = 2
 script = ExtResource("1_aqy8m")
 
 [node name="EmptyBar" type="Sprite2D" parent="."]
+position = Vector2(280, 72.5)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_ef4nd")
 
 [node name="FullBar" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_fck3d")
+material = SubResource("ShaderMaterial_aqy8m")
+position = Vector2(280, 72.5)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_bhew2")
 autoplay = "default"
-frame_progress = 0.613439
+frame_progress = 0.193108
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
