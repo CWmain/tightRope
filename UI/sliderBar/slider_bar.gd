@@ -1,9 +1,11 @@
 @tool
 extends Control
 
+#TODO: Add step using snapped, and clamp value to min max
+
 @export var value: float:
 	set(a):
-		value = a
+		value = clamp(snapped(a, step), minValue, maxValue)
 		updateBar()
 
 @export var minValue: float = 0:
@@ -14,6 +16,8 @@ extends Control
 	set(a):
 		maxValue = a if a != 0 else 1
 		updateBar()
+
+@export var step: float = 0.01
 
 @onready var full_bar: AnimatedSprite2D = $FullBar
 @onready var empty_bar: Sprite2D = $EmptyBar
@@ -29,6 +33,7 @@ func _ready() -> void:
 	full_bar.material = full_bar.material.duplicate()
 	empty_bar.position = custom_minimum_size/2.0
 	full_bar.position = custom_minimum_size/2.0
+	updateBar()
 
 func _process(_delta: float) -> void:
 	if trackMouse:

@@ -29,18 +29,17 @@ grow_vertical = 2
 [node name="Master" parent="VBoxContainer" instance=ExtResource("1_40066")]
 custom_minimum_size = Vector2(560, 145)
 layout_mode = 2
-minValue = 5.0
-maxValue = 10.0
+maxValue = 2.0
 
 [node name="SFX" parent="VBoxContainer" instance=ExtResource("1_40066")]
 custom_minimum_size = Vector2(560, 145)
 layout_mode = 2
-maxValue = 1.0
+maxValue = 2.0
 
 [node name="Music" parent="VBoxContainer" instance=ExtResource("1_40066")]
 custom_minimum_size = Vector2(560, 145)
 layout_mode = 2
-maxValue = 1.0
+maxValue = 2.0
 
 [node name="Back" type="Button" parent="VBoxContainer"]
 layout_mode = 2
