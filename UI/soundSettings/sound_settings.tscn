@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1ln1i6qe5gm1"]
+[gd_scene load_steps=3 format=3 uid="uid://d1ln1i6qe5gm1"]
 
 [ext_resource type="PackedScene" uid="uid://dmos5vljxb12" path="res://UI/sliderBar/slider_bar.tscn" id="1_40066"]
+[ext_resource type="Script" uid="uid://d0wh4krjkos6t" path="res://UI/soundSettings/sound_settings.gd" id="1_py70w"]
 
 [node name="SoundSettings" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_py70w")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -39,3 +41,9 @@ maxValue = 1.0
 custom_minimum_size = Vector2(560, 145)
 layout_mode = 2
 maxValue = 1.0
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
