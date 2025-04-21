@@ -5,6 +5,7 @@ extends Control
 	set(a):
 		value = a
 		updateBar()
+
 @export var minValue: float = 0:
 	set(a):
 			minValue = a
@@ -19,10 +20,12 @@ extends Control
 
 var trackMouse: bool = false
 
+signal valueUpdated
+
 func _ready() -> void:
 	assert(minValue <= maxValue, "Max is smaller than min")
 	custom_minimum_size.x = max(empty_bar.texture.get_width()*empty_bar.scale.x, full_bar.sprite_frames.get_frame_texture("default", 0).get_width()*full_bar.scale.x)
-	custom_minimum_size.y = max(empty_bar.texture.get_height()*empty_bar.scale.y, full_bar.sprite_frames.get_frame_texture("default", 0).get_height()*full_bar.scale.y)
+	custom_minimum_size.y = max(empty_bar.texture.get_height()*empty_bar.scale.y, full_bar.sprite_frames.get_frame_texture("default", 0).get_height()*full_bar.scale.y)-25
 	full_bar.material = full_bar.material.duplicate()
 	empty_bar.position = custom_minimum_size/2.0
 	full_bar.position = custom_minimum_size/2.0
@@ -49,7 +52,9 @@ func _on_gui_input(event: InputEvent) -> void:
 		trackMouse = true
 	elif event.is_action_released("MousePress"):
 		trackMouse = false
+		valueUpdated.emit()
 
 
 func _on_mouse_exited() -> void:
 	trackMouse = false
+	valueUpdated.emit()
