@@ -49,8 +49,6 @@ func updateBar() -> void:
 	if full_bar == null:
 		return
 	full_bar.material.set_shader_parameter("percent", (value-minValue)/(maxValue-minValue))
-	
-
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("MousePress"):

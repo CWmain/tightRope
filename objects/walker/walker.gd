@@ -16,8 +16,6 @@ var lastDirection: int = 0
 
 signal fallen
 
-
-
 func _physics_process(delta: float) -> void:
 	if !isActive:
 		walker_texture.speed_scale = 0
