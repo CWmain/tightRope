@@ -106,16 +106,13 @@ unique_name_in_owner = true
 layout_mode = 2
 maxValue = 2.0
 
-[node name="Back" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Back"
-
 [node name="AnimatedBack" parent="VBoxContainer" instance=ExtResource("3_8xln2")]
+custom_minimum_size = Vector2(369.25, 157.5)
 layout_mode = 2
 spriteFrames = SubResource("SpriteFrames_ba8lf")
+textureScale = 0.35
 
 [connection signal="valueUpdated" from="VBoxContainer/HBoxContainer/Master" to="." method="_on_master_value_updated"]
 [connection signal="valueUpdated" from="VBoxContainer/HBoxContainer2/SFX" to="." method="_on_sfx_value_updated"]
 [connection signal="valueUpdated" from="VBoxContainer/HBoxContainer3/Music" to="." method="_on_music_value_updated"]
-[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/AnimatedBack" to="." method="_on_animated_back_pressed"]
