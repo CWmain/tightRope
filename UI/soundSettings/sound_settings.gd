@@ -22,3 +22,7 @@ func _on_sfx_value_updated() -> void:
 
 func _on_music_value_updated() -> void:
 	AudioServer.set_bus_volume_db(2, linear_to_db(music.value))
+
+
+func _on_animated_back_pressed() -> void:
+	closeMenu.emit()

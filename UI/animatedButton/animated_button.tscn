@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmtcjhfkt1d7j"]
+
+[ext_resource type="Script" uid="uid://yce8mlrdgl7i" path="res://UI/animatedButton/animated_button.gd" id="1_qs7rx"]
+
+[node name="AnimatedButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+script = ExtResource("1_qs7rx")
+
+[node name="AnimatedButtonTexture" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,7 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1ln1i6qe5gm1"]
+[gd_scene load_steps=10 format=3 uid="uid://d1ln1i6qe5gm1"]
 
 [ext_resource type="PackedScene" uid="uid://dmos5vljxb12" path="res://UI/sliderBar/slider_bar.tscn" id="1_40066"]
 [ext_resource type="Script" uid="uid://d0wh4krjkos6t" path="res://UI/soundSettings/sound_settings.gd" id="1_py70w"]
+[ext_resource type="PackedScene" uid="uid://dmtcjhfkt1d7j" path="res://UI/animatedButton/animated_button.tscn" id="3_8xln2"]
+[ext_resource type="Texture2D" uid="uid://lavaako4st8f" path="res://UI/back/back.png" id="4_0p7wo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7trb"]
+atlas = ExtResource("4_0p7wo")
+region = Rect2(0, 0, 1055, 450)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlj0d"]
+atlas = ExtResource("4_0p7wo")
+region = Rect2(0, 450, 1055, 450)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgef7"]
+atlas = ExtResource("4_0p7wo")
+region = Rect2(0, 900, 1055, 450)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swwdr"]
+atlas = ExtResource("4_0p7wo")
+region = Rect2(0, 1350, 1055, 450)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ba8lf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7trb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlj0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgef7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swwdr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="SoundSettings" type="Control"]
 layout_mode = 3
@@ -72,7 +110,12 @@ maxValue = 2.0
 layout_mode = 2
 text = "Back"
 
+[node name="AnimatedBack" parent="VBoxContainer" instance=ExtResource("3_8xln2")]
+layout_mode = 2
+spriteFrames = SubResource("SpriteFrames_ba8lf")
+
 [connection signal="valueUpdated" from="VBoxContainer/HBoxContainer/Master" to="." method="_on_master_value_updated"]
 [connection signal="valueUpdated" from="VBoxContainer/HBoxContainer2/SFX" to="." method="_on_sfx_value_updated"]
 [connection signal="valueUpdated" from="VBoxContainer/HBoxContainer3/Music" to="." method="_on_music_value_updated"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/AnimatedBack" to="." method="_on_animated_back_pressed"]
