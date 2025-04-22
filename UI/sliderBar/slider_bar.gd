@@ -33,6 +33,7 @@ func _ready() -> void:
 	full_bar.material = full_bar.material.duplicate()
 	empty_bar.position = custom_minimum_size/2.0
 	full_bar.position = custom_minimum_size/2.0
+	full_bar.speed_scale = 0
 	updateBar()
 
 func _process(_delta: float) -> void:
@@ -53,6 +54,13 @@ func updateBar() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("MousePress"):
 		trackMouse = true
+		
 	elif event.is_action_released("MousePress"):
 		trackMouse = false
 		valueUpdated.emit()
+
+func _on_mouse_entered() -> void:
+	full_bar.speed_scale = 1
+
+func _on_mouse_exited() -> void:
+	full_bar.speed_scale = 0
