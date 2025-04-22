@@ -1,9 +1,121 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1ln1i6qe5gm1"]
+[gd_scene load_steps=29 format=3 uid="uid://d1ln1i6qe5gm1"]
 
 [ext_resource type="PackedScene" uid="uid://dmos5vljxb12" path="res://UI/sliderBar/slider_bar.tscn" id="1_40066"]
 [ext_resource type="Script" uid="uid://d0wh4krjkos6t" path="res://UI/soundSettings/sound_settings.gd" id="1_py70w"]
+[ext_resource type="PackedScene" uid="uid://buae1seyejors" path="res://UI/animatedLabel/animated_label.tscn" id="2_lgef7"]
+[ext_resource type="Texture2D" uid="uid://bjpn7d0g71tmw" path="res://UI/soundLabels/All/All.png" id="3_0p7wo"]
 [ext_resource type="PackedScene" uid="uid://dmtcjhfkt1d7j" path="res://UI/animatedButton/animated_button.tscn" id="3_8xln2"]
 [ext_resource type="Texture2D" uid="uid://lavaako4st8f" path="res://UI/back/back.png" id="4_0p7wo"]
+[ext_resource type="Texture2D" uid="uid://eejq5dv6rsdo" path="res://UI/soundLabels/SFX/sfx.png" id="5_qlj0d"]
+[ext_resource type="Texture2D" uid="uid://bhe7akebxmitg" path="res://UI/soundLabels/Music/music.png" id="6_lgef7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba8lf"]
+atlas = ExtResource("3_0p7wo")
+region = Rect2(0, 0, 701, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo7s0"]
+atlas = ExtResource("3_0p7wo")
+region = Rect2(701, 0, 701, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lls8i"]
+atlas = ExtResource("3_0p7wo")
+region = Rect2(0, 400, 701, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tskt8"]
+atlas = ExtResource("3_0p7wo")
+region = Rect2(701, 400, 701, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2tru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba8lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo7s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lls8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tskt8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2tru"]
+atlas = ExtResource("5_qlj0d")
+region = Rect2(0, 0, 753, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scn5k"]
+atlas = ExtResource("5_qlj0d")
+region = Rect2(753, 0, 753, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnkft"]
+atlas = ExtResource("5_qlj0d")
+region = Rect2(0, 400, 753, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl4pl"]
+atlas = ExtResource("5_qlj0d")
+region = Rect2(753, 400, 753, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a06w8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2tru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scn5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnkft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl4pl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bybwt"]
+atlas = ExtResource("6_lgef7")
+region = Rect2(0, 0, 959, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45vib"]
+atlas = ExtResource("6_lgef7")
+region = Rect2(959, 0, 959, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0ucr"]
+atlas = ExtResource("6_lgef7")
+region = Rect2(0, 400, 959, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rw5nl"]
+atlas = ExtResource("6_lgef7")
+region = Rect2(959, 400, 959, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wxukt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bybwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45vib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0ucr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rw5nl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o7trb"]
 atlas = ExtResource("4_0p7wo")
@@ -67,11 +179,11 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="AllLabel" parent="VBoxContainer/HBoxContainer" instance=ExtResource("2_lgef7")]
+custom_minimum_size = Vector2(280.4, 160)
 layout_mode = 2
-text = "Master"
-horizontal_alignment = 2
+spriteFrames = SubResource("SpriteFrames_g2tru")
+textureScale = 0.4
 
 [node name="Master" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_40066")]
 unique_name_in_owner = true
@@ -81,11 +193,11 @@ maxValue = 2.0
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(100, 0)
+[node name="SFXLabel" parent="VBoxContainer/HBoxContainer2" instance=ExtResource("2_lgef7")]
+custom_minimum_size = Vector2(301.2, 160)
 layout_mode = 2
-text = "SFX"
-horizontal_alignment = 2
+spriteFrames = SubResource("SpriteFrames_a06w8")
+textureScale = 0.4
 
 [node name="SFX" parent="VBoxContainer/HBoxContainer2" instance=ExtResource("1_40066")]
 unique_name_in_owner = true
@@ -95,11 +207,11 @@ maxValue = 2.0
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
-custom_minimum_size = Vector2(100, 0)
+[node name="MusicLabel" parent="VBoxContainer/HBoxContainer3" instance=ExtResource("2_lgef7")]
+custom_minimum_size = Vector2(383.6, 160)
 layout_mode = 2
-text = "Music"
-horizontal_alignment = 2
+spriteFrames = SubResource("SpriteFrames_wxukt")
+textureScale = 0.4
 
 [node name="Music" parent="VBoxContainer/HBoxContainer3" instance=ExtResource("1_40066")]
 unique_name_in_owner = true
@@ -112,7 +224,13 @@ layout_mode = 2
 spriteFrames = SubResource("SpriteFrames_ba8lf")
 textureScale = 0.35
 
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/Master" to="." method="_on_master_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/Master" to="." method="_on_master_mouse_exited"]
 [connection signal="valueUpdated" from="VBoxContainer/HBoxContainer/Master" to="." method="_on_master_value_updated"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer2/SFX" to="." method="_on_sfx_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer2/SFX" to="." method="_on_sfx_mouse_exited"]
 [connection signal="valueUpdated" from="VBoxContainer/HBoxContainer2/SFX" to="." method="_on_sfx_value_updated"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer3/Music" to="." method="_on_music_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer3/Music" to="." method="_on_music_mouse_exited"]
 [connection signal="valueUpdated" from="VBoxContainer/HBoxContainer3/Music" to="." method="_on_music_value_updated"]
 [connection signal="pressed" from="VBoxContainer/AnimatedBack" to="." method="_on_animated_back_pressed"]

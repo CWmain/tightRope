@@ -69,6 +69,7 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_bhew2")
 autoplay = "default"
 frame_progress = 0.193108
+speed_scale = 0.0
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
