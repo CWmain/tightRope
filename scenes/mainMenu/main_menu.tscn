@@ -1,10 +1,47 @@
-[gd_scene load_steps=20 format=3 uid="uid://vrxcvmfp3ml"]
+[gd_scene load_steps=26 format=3 uid="uid://vrxcvmfp3ml"]
 
 [ext_resource type="Script" uid="uid://xt0g1varwnyg" path="res://scenes/mainMenu/main_menu.gd" id="1_8jkg5"]
 [ext_resource type="PackedScene" uid="uid://d1ln1i6qe5gm1" path="res://UI/soundSettings/sound_settings.tscn" id="2_0ma31"]
 [ext_resource type="PackedScene" uid="uid://dmtcjhfkt1d7j" path="res://UI/animatedButton/animated_button.tscn" id="3_wfauu"]
+[ext_resource type="Texture2D" uid="uid://ce7vp3xrtxnv8" path="res://UI/play/play.png" id="4_82j8y"]
 [ext_resource type="Texture2D" uid="uid://dgfyaoke7tkpp" path="res://UI/sounds/sounds.png" id="4_m3keh"]
 [ext_resource type="Texture2D" uid="uid://cccabvcnl4tn7" path="res://UI/score/score.png" id="5_m3keh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kulw"]
+atlas = ExtResource("4_82j8y")
+region = Rect2(0, 0, 834, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbb5l"]
+atlas = ExtResource("4_82j8y")
+region = Rect2(834, 0, 834, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfy82"]
+atlas = ExtResource("4_82j8y")
+region = Rect2(834, 550, 834, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtu4w"]
+atlas = ExtResource("4_82j8y")
+region = Rect2(0, 550, 834, 550)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7uhyb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kulw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbb5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfy82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtu4w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82j8y"]
 atlas = ExtResource("4_m3keh")
@@ -120,7 +157,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(311, 119.5), Vector2(1200, 119.5)]
+"values": [Vector2(311, 48), Vector2(1200, 48)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_621iq"]
@@ -142,7 +179,7 @@ script = ExtResource("1_8jkg5")
 [node name="SoundSettings" parent="." instance=ExtResource("2_0ma31")]
 layout_mode = 1
 rotation = -3.14159
-pivot_offset = Vector2(576, 646)
+pivot_offset = Vector2(576, 650)
 
 [node name="MainMenuButtons" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -152,17 +189,18 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -265.0
-offset_top = -204.5
+offset_top = -276.0
 offset_right = 265.0
-offset_bottom = 204.5
+offset_bottom = 276.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(265, 526.5)
+pivot_offset = Vector2(265, 600)
 
-[node name="Play" type="Button" parent="MainMenuButtons"]
+[node name="Play" parent="MainMenuButtons" instance=ExtResource("3_wfauu")]
+custom_minimum_size = Vector2(333.6, 220)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Play"
+spriteFrames = SubResource("SpriteFrames_7uhyb")
+textureScale = 0.4
 
 [node name="Sounds" parent="MainMenuButtons" instance=ExtResource("3_wfauu")]
 custom_minimum_size = Vector2(530, 160)
