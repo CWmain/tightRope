@@ -1,18 +1,21 @@
 extends Control
 
-
-@onready var v_box_container: VBoxContainer = $VBoxContainer
+@onready var main_menu_buttons: VBoxContainer = $MainMenuButtons
 @onready var sound_settings: Control = $SoundSettings
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var play: PackedScene = preload("res://scenes/main/main.tscn")
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_packed(play)
+	animation_player.play("MenuToPlay")
 
 func _on_sounds_pressed() -> void:
-	v_box_container.hide()
-	sound_settings.show()
+	animation_player.play("MenuToSound")
 
 func _on_sound_settings_close_menu() -> void:
-	v_box_container.show()
-	sound_settings.hide()
+	animation_player.play("MenuToSound", -1, -1, true)
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	match anim_name:
+		"MenuToPlay":
+			get_tree().change_scene_to_packed(play)

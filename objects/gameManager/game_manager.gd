@@ -65,5 +65,5 @@ func endGame() -> void:
 	earn_points.stop()
 	spawn_stuff.stop()
 	increment_chance_to_fire.stop()
-	walker.process_mode = Node.PROCESS_MODE_DISABLED
+	#walker.process_mode = Node.PROCESS_MODE_DISABLED
 	print("Game is ended do more stuff")

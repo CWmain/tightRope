@@ -1,7 +1,134 @@
-[gd_scene load_steps=3 format=3 uid="uid://vrxcvmfp3ml"]
+[gd_scene load_steps=20 format=3 uid="uid://vrxcvmfp3ml"]
 
 [ext_resource type="Script" uid="uid://xt0g1varwnyg" path="res://scenes/mainMenu/main_menu.gd" id="1_8jkg5"]
 [ext_resource type="PackedScene" uid="uid://d1ln1i6qe5gm1" path="res://UI/soundSettings/sound_settings.tscn" id="2_0ma31"]
+[ext_resource type="PackedScene" uid="uid://dmtcjhfkt1d7j" path="res://UI/animatedButton/animated_button.tscn" id="3_wfauu"]
+[ext_resource type="Texture2D" uid="uid://dgfyaoke7tkpp" path="res://UI/sounds/sounds.png" id="4_m3keh"]
+[ext_resource type="Texture2D" uid="uid://cccabvcnl4tn7" path="res://UI/score/score.png" id="5_m3keh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82j8y"]
+atlas = ExtResource("4_m3keh")
+region = Rect2(0, 0, 1325, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_621iq"]
+atlas = ExtResource("4_m3keh")
+region = Rect2(1325, 0, 1325, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_biq0h"]
+atlas = ExtResource("4_m3keh")
+region = Rect2(1325, 400, 1325, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7st3g"]
+atlas = ExtResource("4_m3keh")
+region = Rect2(0, 400, 1325, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_11v51"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82j8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_621iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_biq0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7st3g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11v51"]
+atlas = ExtResource("5_m3keh")
+region = Rect2(0, 0, 939, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kskfm"]
+atlas = ExtResource("5_m3keh")
+region = Rect2(939, 0, 939, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88ij5"]
+atlas = ExtResource("5_m3keh")
+region = Rect2(0, 412, 939, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb30r"]
+atlas = ExtResource("5_m3keh")
+region = Rect2(939, 412, 939, 412)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3kulw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11v51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kskfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88ij5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb30r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_82j8y"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_m3keh"]
+resource_name = "MenuToSound"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenuButtons:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SoundSettings:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-3.14159, -1.5708, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_621iq"]
+resource_name = "MenuToPlay"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenuButtons:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(311, 119.5), Vector2(1200, 119.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_621iq"]
+_data = {
+&"MenuToPlay": SubResource("Animation_621iq"),
+&"MenuToSound": SubResource("Animation_m3keh"),
+&"RESET": SubResource("Animation_82j8y")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,33 +140,48 @@ grow_vertical = 2
 script = ExtResource("1_8jkg5")
 
 [node name="SoundSettings" parent="." instance=ExtResource("2_0ma31")]
-visible = false
 layout_mode = 1
+rotation = -3.14159
+pivot_offset = Vector2(576, 646)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MainMenuButtons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.5
-offset_top = -33.0
-offset_right = 32.5
-offset_bottom = 33.0
+offset_left = -265.0
+offset_top = -204.5
+offset_right = 265.0
+offset_bottom = 204.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(265, 526.5)
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Play" type="Button" parent="MainMenuButtons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Play"
 
-[node name="Sounds" type="Button" parent="VBoxContainer"]
+[node name="Sounds" parent="MainMenuButtons" instance=ExtResource("3_wfauu")]
+custom_minimum_size = Vector2(530, 160)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Sounds"
+spriteFrames = SubResource("SpriteFrames_11v51")
+textureScale = 0.4
+
+[node name="Scores" parent="MainMenuButtons" instance=ExtResource("3_wfauu")]
+custom_minimum_size = Vector2(375.6, 164.8)
+layout_mode = 2
+spriteFrames = SubResource("SpriteFrames_3kulw")
+textureScale = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_621iq")
+}
 
 [connection signal="closeMenu" from="SoundSettings" to="." method="_on_sound_settings_close_menu"]
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Sounds" to="." method="_on_sounds_pressed"]
+[connection signal="pressed" from="MainMenuButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenuButtons/Sounds" to="." method="_on_sounds_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
