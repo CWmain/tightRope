@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmos5vljxb12"]
+[gd_scene load_steps=12 format=3 uid="uid://dmos5vljxb12"]
 
 [ext_resource type="Script" uid="uid://epbw065ttc1b" path="res://UI/sliderBar/slider_bar.gd" id="1_aqy8m"]
 [ext_resource type="Texture2D" uid="uid://d1av8pn5d5lbs" path="res://UI/sliderBar/barFill.png" id="2_6ymq2"]
 [ext_resource type="Texture2D" uid="uid://chln3w5ra2pfm" path="res://UI/sliderBar/emptyBarStill.png" id="2_ef4nd"]
 [ext_resource type="Shader" uid="uid://dm2o4uoqq0jtj" path="res://UI/sliderBar/slider_bar.gdshader" id="3_25pyd"]
+[ext_resource type="AudioStream" uid="uid://cerfwb5bossk1" path="res://UI/sliderBar/monoTone.mp3" id="5_ef4nd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aqy8m"]
 shader = ExtResource("3_25pyd")
@@ -70,6 +71,10 @@ sprite_frames = SubResource("SpriteFrames_bhew2")
 autoplay = "default"
 frame_progress = 0.193108
 speed_scale = 0.0
+
+[node name="Monotone" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ef4nd")
+volume_db = -4.0
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

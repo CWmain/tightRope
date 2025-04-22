@@ -1,8 +1,6 @@
 @tool
 extends Control
 
-#TODO: Add step using snapped, and clamp value to min max
-
 @export var value: float:
 	set(a):
 		value = clamp(snapped(a, step), minValue, maxValue)
@@ -22,6 +20,8 @@ extends Control
 @onready var full_bar: AnimatedSprite2D = $FullBar
 @onready var empty_bar: Sprite2D = $EmptyBar
 
+@onready var monotone: AudioStreamPlayer = $Monotone
+
 var trackMouse: bool = false
 
 signal valueUpdated
@@ -38,9 +38,13 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if trackMouse:
+		if !monotone.playing:
+			monotone.play()
 		var width: float = custom_minimum_size.x
 		var localMouse: float = get_local_mouse_position().x
 		var valuePercent = (localMouse)/width
+		
+		monotone.pitch_scale = clamp(0.5+(valuePercent/2), 0.5, 1.0)
 		
 		# Calculate the new value based on the dragging
 		value = valuePercent*(maxValue-minValue) + minValue
@@ -57,6 +61,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		
 	elif event.is_action_released("MousePress"):
 		trackMouse = false
+		monotone.stop()
 		valueUpdated.emit()
 
 func _on_mouse_entered() -> void:

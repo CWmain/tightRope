@@ -13,6 +13,7 @@ extends Control
 			updateButton()
 
 @onready var animated_button_texture: AnimatedSprite2D = $AnimatedButtonTexture
+@onready var button_press: AudioStreamPlayer = $ButtonPress
 
 signal pressed
 
@@ -28,6 +29,9 @@ func _on_mouse_exited() -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("MousePress"):
+		var pitchOffest: float = (randf()*0.5)-0.25
+		button_press.pitch_scale = 1+pitchOffest
+		button_press.play()
 		pressed.emit()
 
 func updateButton() -> void:
