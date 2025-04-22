@@ -40,6 +40,7 @@ func _process(_delta: float) -> void:
 	if trackMouse:
 		if !monotone.playing:
 			monotone.play()
+		monotone.stream_paused = false
 		var width: float = custom_minimum_size.x
 		var localMouse: float = get_local_mouse_position().x
 		var valuePercent = (localMouse)/width
@@ -48,7 +49,7 @@ func _process(_delta: float) -> void:
 		
 		# Calculate the new value based on the dragging
 		value = valuePercent*(maxValue-minValue) + minValue
-		print("Tracking ", name, " with value ", value)
+		#print("Tracking ", name, " with value ", value)
 
 func updateBar() -> void:
 	if full_bar == null:
@@ -61,7 +62,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		
 	elif event.is_action_released("MousePress"):
 		trackMouse = false
-		monotone.stop()
+		monotone.stream_paused = true
 		valueUpdated.emit()
 
 func _on_mouse_entered() -> void:

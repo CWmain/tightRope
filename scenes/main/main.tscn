@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://b3upb7t2hdfk1"]
+[gd_scene load_steps=22 format=3 uid="uid://b3upb7t2hdfk1"]
 
 [ext_resource type="PackedScene" uid="uid://cl57ajdyrwmbx" path="res://objects/walker/walker.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://des41i0ea0vuf" path="res://scenes/main/main.gd" id="1_tefeu"]
+[ext_resource type="Texture2D" uid="uid://bgf2f5w8f4bg4" path="res://UI/background/towel.png" id="3_blune"]
 [ext_resource type="PackedScene" uid="uid://dd4sq1nmqhuqo" path="res://objects/rockSpawner/rock_spawner.tscn" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://drcton3gljqab" path="res://UI/background/concret.png" id="4_th5th"]
 [ext_resource type="PackedScene" uid="uid://pf104i0ckybt" path="res://objects/sky/sky.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d4nhjb3el55ox" path="res://objects/pointsDisplay/points_display.tscn" id="6_choun"]
 [ext_resource type="PackedScene" uid="uid://cy5ni16xupev7" path="res://objects/metal/metal.tscn" id="6_o6xl0"]
@@ -10,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cgxwpim6cajfw" path="res://objects/scissors/scissors.tscn" id="7_85g3d"]
 [ext_resource type="Texture2D" uid="uid://di0m7qhsm0f2" path="res://objects/rope/editedRope.png" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cgsmcsdbsoqtg" path="res://objects/tape/tape.tscn" id="7_tipki"]
+[ext_resource type="Texture2D" uid="uid://cwsyv3r2h7eui" path="res://UI/background/blurFloor.png" id="11_ouso4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
 atlas = ExtResource("7_o6xl0")
@@ -171,6 +174,56 @@ _data = {
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tefeu")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(550, 486)
+zoom = Vector2(2, 2)
+
+[node name="BlueBackground" type="TextureRect" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -162.0
+offset_right = 864.0
+offset_bottom = 486.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_ouso4")
+
+[node name="TowelBackground" type="TextureRect" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -162.0
+offset_right = 864.0
+offset_bottom = 486.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_blune")
+
+[node name="Concrete" type="TextureRect" parent="Camera2D"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -162.0
+offset_right = 864.0
+offset_bottom = 486.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_th5th")
+
 [node name="Control2" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -232,10 +285,6 @@ position = Vector2(-390, 390)
 scale = Vector2(0.3, 0.3)
 value = 3
 paused = false
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(550, 486)
-zoom = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
