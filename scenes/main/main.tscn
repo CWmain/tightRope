@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://b3upb7t2hdfk1"]
+[gd_scene load_steps=21 format=3 uid="uid://b3upb7t2hdfk1"]
 
 [ext_resource type="PackedScene" uid="uid://cl57ajdyrwmbx" path="res://objects/walker/walker.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://des41i0ea0vuf" path="res://scenes/main/main.gd" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dd4sq1nmqhuqo" path="res://objects/rockSpawner/rock_spawner.tscn" id="3_sugp2"]
-[ext_resource type="PackedScene" uid="uid://pf104i0ckybt" path="res://objects/sky/sky.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d4nhjb3el55ox" path="res://objects/pointsDisplay/points_display.tscn" id="6_choun"]
 [ext_resource type="PackedScene" uid="uid://cy5ni16xupev7" path="res://objects/metal/metal.tscn" id="6_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://ddf0g3xhjme73" path="res://UI/background/doubleResCardboard.png" id="6_raeie"]
@@ -249,19 +248,6 @@ expand_mode = 2
 z_index = 1
 scale = Vector2(0.5, 0.5)
 
-[node name="Control2" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = -3.0
-offset_top = 154.0
-offset_right = 997.0
-offset_bottom = 1154.0
-
-[node name="Sky" parent="Control2" instance=ExtResource("5_tbgi4")]
-layout_mode = 1
-color = Color(0, 0, 0, 1)
-
 [node name="Rope" type="AnimatedSprite2D" parent="."]
 position = Vector2(600, -114)
 rotation = -1.57079
@@ -293,17 +279,6 @@ spawnSpeed = Vector2(-1000, 0)
 position = Vector2(952, 638)
 globalWarningLocation = Vector2(780, 580)
 spawnSpeed = Vector2(-1000, -400)
-
-[node name="CountIn" type="Label" parent="."]
-visible = false
-offset_left = -421.0
-offset_top = 291.0
-offset_right = -227.0
-offset_bottom = 466.0
-theme_override_constants/outline_size = 20
-theme_override_constants/shadow_outline_size = 10
-theme_override_font_sizes/font_size = 128
-text = "GO"
 
 [node name="AnimatedCountIn" parent="." instance=ExtResource("6_choun")]
 position = Vector2(-390, 390)
