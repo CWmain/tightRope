@@ -44,14 +44,76 @@ func _ready() -> void:
 	walker.fallen.connect(endGame)
 
 func _on_spawn_stuff_timeout() -> void:
-	if randf() <= chanceToFire:
+	var roll: float = randf()
+	if points < 100:
+		spawnOne(roll)
+	elif points < 200:
+		spawnTwo(roll)
+	elif points < 300:
+		spawnThree(roll)
+	else:
+		if roll < 0.1:
+			spawnOne(roll)
+		elif roll < 0.2:
+			spawnTwo(roll)
+		elif roll < 0.6:
+			spawnThree(roll)
+		else:
+			spawnFour()
+
+func spawnOne(roll: float)->void:
+	if roll <= 0.25:
 		topLeft.createProjectile(projectiles[round(randf()*2)])
-	if randf() <= chanceToFire:
+	elif roll <= 0.5:
 		topRight.createProjectile(projectiles[round(randf()*2)])
-	if randf() <= chanceToFire:
+	elif roll <= 0.75:
 		bottomRight.createProjectile(projectiles[round(randf()*2)])
-	if randf() <= chanceToFire:
+	else:
 		bottomLeft.createProjectile(projectiles[round(randf()*2)])
+
+func spawnTwo(roll: float) -> void:
+	if roll <= 0.16:
+		topLeft.createProjectile(projectiles[round(randf()*2)])
+		topRight.createProjectile(projectiles[round(randf()*2)])
+	elif roll <= 0.32:
+		topLeft.createProjectile(projectiles[round(randf()*2)])
+		bottomRight.createProjectile(projectiles[round(randf()*2)])
+	elif roll <= 0.48:
+		topLeft.createProjectile(projectiles[round(randf()*2)])
+		bottomLeft.createProjectile(projectiles[round(randf()*2)])
+	elif roll <= 0.64:
+		topRight.createProjectile(projectiles[round(randf()*2)])
+		bottomLeft.createProjectile(projectiles[round(randf()*2)])
+	elif roll <= 0.8:
+		topRight.createProjectile(projectiles[round(randf()*2)])
+		bottomRight.createProjectile(projectiles[round(randf()*2)])
+	else:
+		bottomLeft.createProjectile(projectiles[round(randf()*2)])
+		bottomRight.createProjectile(projectiles[round(randf()*2)])
+
+func spawnThree(roll: float) -> void:
+	if roll < 0.25:
+		topLeft.createProjectile(projectiles[round(randf()*2)])
+		topRight.createProjectile(projectiles[round(randf()*2)])
+		bottomLeft.createProjectile(projectiles[round(randf()*2)])
+	elif roll < 0.5:
+		topLeft.createProjectile(projectiles[round(randf()*2)])
+		topRight.createProjectile(projectiles[round(randf()*2)])
+		bottomRight.createProjectile(projectiles[round(randf()*2)])
+	elif roll < 0.75:
+		topLeft.createProjectile(projectiles[round(randf()*2)])
+		bottomLeft.createProjectile(projectiles[round(randf()*2)])
+		bottomRight.createProjectile(projectiles[round(randf()*2)])
+	else:
+		topRight.createProjectile(projectiles[round(randf()*2)])
+		bottomLeft.createProjectile(projectiles[round(randf()*2)])
+		bottomRight.createProjectile(projectiles[round(randf()*2)])
+
+func spawnFour() -> void:
+	topLeft.createProjectile(projectiles[round(randf()*2)])
+	topRight.createProjectile(projectiles[round(randf()*2)])
+	bottomLeft.createProjectile(projectiles[round(randf()*2)])
+	bottomRight.createProjectile(projectiles[round(randf()*2)])
 
 func _on_increment_chance_to_fire_timeout() -> void:
 	chanceToFire = chanceToFire+0.1 if chanceToFire <= 0.9 else 1
@@ -74,6 +136,4 @@ func endGame() -> void:
 	endGameMenu.gameEndAnimation()
 	endGameMenu.endGameMenuScore.value = points
 	
-	#walker.process_mode = Node.PROCESS_MODE_DISABLED
-	print("Game is ended do more stuff")
 	gameRunning = false
