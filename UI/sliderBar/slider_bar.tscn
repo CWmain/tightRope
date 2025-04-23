@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://dm2o4uoqq0jtj" path="res://UI/sliderBar/slider_bar.gdshader" id="3_25pyd"]
 [ext_resource type="AudioStream" uid="uid://cerfwb5bossk1" path="res://UI/sliderBar/monoTone.mp3" id="5_ef4nd"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqy8m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ef4nd"]
 shader = ExtResource("3_25pyd")
 shader_parameter/percent = 0.0
 
@@ -64,7 +64,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_ef4nd")
 
 [node name="FullBar" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_aqy8m")
+material = SubResource("ShaderMaterial_ef4nd")
 position = Vector2(280, 72.5)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_bhew2")

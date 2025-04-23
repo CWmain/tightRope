@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://vrxcvmfp3ml"]
+[gd_scene load_steps=37 format=3 uid="uid://vrxcvmfp3ml"]
 
 [ext_resource type="Script" uid="uid://xt0g1varwnyg" path="res://scenes/mainMenu/main_menu.gd" id="1_8jkg5"]
 [ext_resource type="PackedScene" uid="uid://d1ln1i6qe5gm1" path="res://UI/soundSettings/sound_settings.tscn" id="2_0ma31"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://drcton3gljqab" path="res://UI/background/concret.png" id="4_11v51"]
 [ext_resource type="Texture2D" uid="uid://ce7vp3xrtxnv8" path="res://UI/play/play.png" id="4_82j8y"]
 [ext_resource type="Texture2D" uid="uid://dgfyaoke7tkpp" path="res://UI/sounds/sounds.png" id="4_m3keh"]
+[ext_resource type="Texture2D" uid="uid://edvsn6dy646" path="res://UI/background/cardboard.png" id="5_kskfm"]
 [ext_resource type="Texture2D" uid="uid://cccabvcnl4tn7" path="res://UI/score/score.png" id="5_m3keh"]
+[ext_resource type="Texture2D" uid="uid://ddf0g3xhjme73" path="res://UI/background/doubleResCardboard.png" id="6_88ij5"]
 [ext_resource type="Texture2D" uid="uid://beoaa8gr8guuc" path="res://UI/title/title.png" id="7_621iq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7uhyb"]
@@ -155,8 +157,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_82j8y"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_621iq"]
+resource_name = "MenuToPlay"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenuButtons:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(311, 95), Vector2(1500, 95)]
+}
 
 [sub_resource type="Animation" id="Animation_m3keh"]
 resource_name = "MenuToSound"
@@ -185,20 +199,8 @@ tracks/1/keys = {
 "values": [-3.14159, -1.5708, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_621iq"]
-resource_name = "MenuToPlay"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MainMenuButtons:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(311, 95), Vector2(1500, 95)]
-}
+[sub_resource type="Animation" id="Animation_82j8y"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_621iq"]
 _data = {
@@ -247,7 +249,6 @@ grow_vertical = 2
 texture = ExtResource("3_7st3g")
 
 [node name="Concrete" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -261,6 +262,37 @@ offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_11v51")
+
+[node name="Cardboard" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_kskfm")
+
+[node name="Cardboard2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_88ij5")
+expand_mode = 2
 
 [node name="SoundSettings" parent="." instance=ExtResource("2_0ma31")]
 layout_mode = 1
