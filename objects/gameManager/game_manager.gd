@@ -45,11 +45,11 @@ func _ready() -> void:
 
 func _on_spawn_stuff_timeout() -> void:
 	var roll: float = randf()
-	if points < 100:
+	if points < 200:
 		spawnOne(roll)
-	elif points < 200:
+	elif points < 400:
 		spawnTwo(roll)
-	elif points < 300:
+	elif points < 600:
 		spawnThree(roll)
 	else:
 		if roll < 0.1:
