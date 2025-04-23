@@ -304,24 +304,28 @@ custom_minimum_size = Vector2(166.8, 110)
 layout_mode = 2
 spriteFrames = SubResource("SpriteFrames_ybsqk")
 textureScale = 0.2
+enabled = null
 
 [node name="Scores" parent="Buttons" instance=ExtResource("1_q7unb")]
 custom_minimum_size = Vector2(187.8, 82.4)
 layout_mode = 2
 spriteFrames = SubResource("SpriteFrames_bi3ik")
 textureScale = 0.2
+enabled = null
 
 [node name="Sounds" parent="Buttons" instance=ExtResource("1_q7unb")]
 custom_minimum_size = Vector2(265, 80)
 layout_mode = 2
 spriteFrames = SubResource("SpriteFrames_cejeq")
 textureScale = 0.2
+enabled = null
 
 [node name="Quit" parent="Buttons" instance=ExtResource("1_q7unb")]
 custom_minimum_size = Vector2(164.6, 82.4)
 layout_mode = 2
 spriteFrames = SubResource("SpriteFrames_2vj3e")
 textureScale = 0.2
+enabled = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

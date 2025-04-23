@@ -11,10 +11,26 @@ signal closeMenu
 @onready var music: Control = %Music
 @onready var music_label: Control = $VBoxContainer/HBoxContainer3/MusicLabel
 
+@onready var animated_back: Control = $VBoxContainer/AnimatedBack
+
+@export var enabled: bool = false:
+	set(value):
+		enabled = value
+		if master == null or sfx == null or music == null or animated_back == null:
+			return
+		setChildEnabled(value)
+
 func _ready() -> void:
 	master.value = db_to_linear(AudioServer.get_bus_volume_db(0))
 	sfx.value = db_to_linear(AudioServer.get_bus_volume_db(1))
 	music.value = db_to_linear(AudioServer.get_bus_volume_db(2))
+	setChildEnabled(enabled)
+
+func setChildEnabled(value: bool) -> void:
+	master.enabled = value
+	sfx.enabled = value
+	music.enabled = value
+	animated_back.enabled = value
 
 func _on_master_value_updated() -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(master.value))

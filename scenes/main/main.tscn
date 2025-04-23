@@ -292,6 +292,7 @@ scale = Vector2(0.1, 0.1)
 value = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_85g3d")
 }

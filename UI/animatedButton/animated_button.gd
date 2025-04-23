@@ -12,6 +12,8 @@ extends Control
 		if animated_button_texture != null:
 			updateButton()
 
+@export var enabled = false
+
 @onready var animated_button_texture: AnimatedSprite2D = $AnimatedButtonTexture
 @onready var button_press: AudioStreamPlayer = $ButtonPress
 
@@ -28,7 +30,7 @@ func _on_mouse_exited() -> void:
 	animated_button_texture.speed_scale = 0
 
 func _on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("MousePress"):
+	if enabled and event.is_action_pressed("MousePress"):
 		var pitchOffest: float = (randf()*0.5)-0.25
 		button_press.pitch_scale = 1+pitchOffest
 		button_press.play()

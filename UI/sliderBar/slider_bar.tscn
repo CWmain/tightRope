@@ -57,6 +57,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aqy8m")
+enabled = null
 
 [node name="EmptyBar" type="Sprite2D" parent="."]
 position = Vector2(280, 72.5)

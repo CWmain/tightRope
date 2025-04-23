@@ -16,7 +16,7 @@ extends Control
 		updateBar()
 
 @export var step: float = 0.01
-
+@export var enabled: bool = false
 @onready var full_bar: AnimatedSprite2D = $FullBar
 @onready var empty_bar: Sprite2D = $EmptyBar
 
@@ -37,7 +37,7 @@ func _ready() -> void:
 	updateBar()
 
 func _process(_delta: float) -> void:
-	if trackMouse:
+	if trackMouse and enabled:
 		if !monotone.playing:
 			monotone.play()
 		monotone.stream_paused = false
