@@ -5,12 +5,32 @@ extends Control
 var mainMenu: PackedScene = load("res://scenes/mainMenu/main_menu.tscn")
 @onready var endGameMenuScore: PointsDisplay = $Buttons/pointsDisplay
 
+@onready var play: Control = $Buttons/Play
+@onready var scores: Control = $Buttons/Scores
+@onready var sounds: Control = $Buttons/Sounds
+@onready var quit: Control = $Buttons/Quit
+
+
+
+@export var enabled: bool = false:
+	set(value):
+		enabled = value
+		if play == null or scores == null or sounds == null or quit == null:
+			return
+		setChildEnabled(value)
+
 ## Called by game manager to trigger the game end animation
 func gameEndAnimation(clockwise: bool) -> void:
 	if clockwise:
 		animation_player.play("gameEndClockWise")
 	else:
 		animation_player.play("gameEnd")
+
+func setChildEnabled(value: bool):
+	play.enabled = value
+	scores.enabled = value
+	sounds.enabled = value
+	quit.enabled = value
 
 func _on_play_pressed() -> void:
 	animation_player.play("play")
