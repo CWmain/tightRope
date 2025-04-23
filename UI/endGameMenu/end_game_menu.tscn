@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://blwgd0c2ey4i1"]
+[gd_scene load_steps=36 format=3 uid="uid://blwgd0c2ey4i1"]
 
 [ext_resource type="Script" uid="uid://4g4biufdcufj" path="res://UI/endGameMenu/end_game_menu.gd" id="1_l4xlx"]
 [ext_resource type="PackedScene" uid="uid://dmtcjhfkt1d7j" path="res://UI/animatedButton/animated_button.tscn" id="1_q7unb"]
@@ -228,10 +228,26 @@ tracks/0/keys = {
 "values": [0.0, -3.14159]
 }
 
+[sub_resource type="Animation" id="Animation_vyko5"]
+resource_name = "gameEndClockWise"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-3.14159, -1.5708, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cb360"]
 _data = {
 &"RESET": SubResource("Animation_nndj1"),
 &"gameEnd": SubResource("Animation_l4xlx"),
+&"gameEndClockWise": SubResource("Animation_vyko5"),
 &"gameEndToSound": SubResource("Animation_clagb"),
 &"play": SubResource("Animation_cb360"),
 &"quit": SubResource("Animation_sa8p6")

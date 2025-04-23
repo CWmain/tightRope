@@ -6,8 +6,11 @@ var mainMenu: PackedScene = load("res://scenes/mainMenu/main_menu.tscn")
 @onready var endGameMenuScore: PointsDisplay = $Buttons/pointsDisplay
 
 ## Called by game manager to trigger the game end animation
-func gameEndAnimation() -> void:
-	animation_player.play("gameEnd")
+func gameEndAnimation(clockwise: bool) -> void:
+	if clockwise:
+		animation_player.play("gameEndClockWise")
+	else:
+		animation_player.play("gameEnd")
 
 func _on_play_pressed() -> void:
 	animation_player.play("play")

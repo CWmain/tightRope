@@ -133,7 +133,7 @@ func endGame() -> void:
 	spawn_stuff.stop()
 	increment_chance_to_fire.stop()
 	animationPlayer.play("endGame")
-	endGameMenu.gameEndAnimation()
+	endGameMenu.gameEndAnimation(walker.rigid_body_2d.rotation > 0)
 	endGameMenu.endGameMenuScore.value = points
 	
 	gameRunning = false
