@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://vrxcvmfp3ml"]
+[gd_scene load_steps=35 format=3 uid="uid://vrxcvmfp3ml"]
 
 [ext_resource type="Script" uid="uid://xt0g1varwnyg" path="res://scenes/mainMenu/main_menu.gd" id="1_8jkg5"]
 [ext_resource type="PackedScene" uid="uid://d1ln1i6qe5gm1" path="res://UI/soundSettings/sound_settings.tscn" id="2_0ma31"]
@@ -198,9 +198,61 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_82j8y"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenuButtons/Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(265, -317)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenuButtons:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_7st3g"]
+resource_name = "Intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenuButtons/Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(265, -800), Vector2(265, 31)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenuButtons:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.14159, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_621iq"]
 _data = {
+&"Intro": SubResource("Animation_7st3g"),
 &"MenuToPlay": SubResource("Animation_621iq"),
 &"MenuToSound": SubResource("Animation_m3keh"),
 &"RESET": SubResource("Animation_82j8y")
@@ -254,11 +306,12 @@ offset_right = 265.0
 offset_bottom = 323.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 3.14159
 pivot_offset = Vector2(265, 560)
 alignment = 2
 
 [node name="Title" type="AnimatedSprite2D" parent="MainMenuButtons"]
-position = Vector2(265, 31)
+position = Vector2(265, -317)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_s06i6")
 autoplay = "default"

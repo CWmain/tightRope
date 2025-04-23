@@ -10,6 +10,7 @@ var play: PackedScene = preload("res://scenes/main/main.tscn")
 
 func _ready() -> void:
 	sweat.emitting = true
+	animation_player.play("Intro")
 
 func _on_play_pressed() -> void:
 	animation_player.play("MenuToPlay")
