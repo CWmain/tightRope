@@ -12,7 +12,7 @@ func gameEndAnimation() -> void:
 	animation_player.play("gameEnd")
 
 func _on_play_pressed() -> void:
-	get_tree().reload_current_scene()
+	animation_player.play("play")
 
 func _on_scores_pressed() -> void:
 	print("So score menu")
@@ -25,3 +25,9 @@ func _on_sound_settings_close_menu() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().change_scene_to_packed(mainMenu)
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	match anim_name:
+		"play":
+			get_tree().reload_current_scene()

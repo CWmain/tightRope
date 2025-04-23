@@ -1,15 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://vrxcvmfp3ml"]
+[gd_scene load_steps=34 format=3 uid="uid://vrxcvmfp3ml"]
 
 [ext_resource type="Script" uid="uid://xt0g1varwnyg" path="res://scenes/mainMenu/main_menu.gd" id="1_8jkg5"]
 [ext_resource type="PackedScene" uid="uid://d1ln1i6qe5gm1" path="res://UI/soundSettings/sound_settings.tscn" id="2_0ma31"]
-[ext_resource type="Texture2D" uid="uid://cwsyv3r2h7eui" path="res://UI/background/blurFloor.png" id="2_biq0h"]
 [ext_resource type="PackedScene" uid="uid://c1y2ot0jxpwm1" path="res://particles/sweat/sweat.tscn" id="2_mb30r"]
-[ext_resource type="Texture2D" uid="uid://bgf2f5w8f4bg4" path="res://UI/background/towel.png" id="3_7st3g"]
 [ext_resource type="PackedScene" uid="uid://dmtcjhfkt1d7j" path="res://UI/animatedButton/animated_button.tscn" id="3_wfauu"]
-[ext_resource type="Texture2D" uid="uid://drcton3gljqab" path="res://UI/background/concret.png" id="4_11v51"]
 [ext_resource type="Texture2D" uid="uid://ce7vp3xrtxnv8" path="res://UI/play/play.png" id="4_82j8y"]
 [ext_resource type="Texture2D" uid="uid://dgfyaoke7tkpp" path="res://UI/sounds/sounds.png" id="4_m3keh"]
-[ext_resource type="Texture2D" uid="uid://edvsn6dy646" path="res://UI/background/cardboard.png" id="5_kskfm"]
 [ext_resource type="Texture2D" uid="uid://cccabvcnl4tn7" path="res://UI/score/score.png" id="5_m3keh"]
 [ext_resource type="Texture2D" uid="uid://ddf0g3xhjme73" path="res://UI/background/doubleResCardboard.png" id="6_88ij5"]
 [ext_resource type="Texture2D" uid="uid://beoaa8gr8guuc" path="res://UI/title/title.png" id="7_621iq"]
@@ -223,70 +219,6 @@ script = ExtResource("1_8jkg5")
 position = Vector2(569, 304)
 emitting = false
 one_shot = true
-
-[node name="BlueFloor" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_biq0h")
-
-[node name="Towel" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_7st3g")
-
-[node name="Concrete" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_11v51")
-
-[node name="Cardboard" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_kskfm")
 
 [node name="Cardboard2" type="TextureRect" parent="."]
 layout_mode = 1

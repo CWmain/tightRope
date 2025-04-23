@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://blwgd0c2ey4i1"]
+[gd_scene load_steps=34 format=3 uid="uid://blwgd0c2ey4i1"]
 
 [ext_resource type="Script" uid="uid://4g4biufdcufj" path="res://UI/endGameMenu/end_game_menu.gd" id="1_l4xlx"]
 [ext_resource type="PackedScene" uid="uid://dmtcjhfkt1d7j" path="res://UI/animatedButton/animated_button.tscn" id="1_q7unb"]
@@ -198,11 +198,27 @@ tracks/1/keys = {
 "values": [3.14159, 1.5708, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_cb360"]
+resource_name = "play"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(464.889, 250.434), Vector2(464.889, -500)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cb360"]
 _data = {
 &"RESET": SubResource("Animation_nndj1"),
 &"gameEnd": SubResource("Animation_l4xlx"),
-&"gameEndToSound": SubResource("Animation_clagb")
+&"gameEndToSound": SubResource("Animation_clagb"),
+&"play": SubResource("Animation_cb360")
 }
 
 [node name="EndGameMenu" type="Control"]
@@ -285,3 +301,4 @@ libraries = {
 [connection signal="pressed" from="Buttons/Scores" to="." method="_on_scores_pressed"]
 [connection signal="pressed" from="Buttons/Sounds" to="." method="_on_sounds_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
