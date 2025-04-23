@@ -245,7 +245,7 @@ rotation = 3.14159
 pivot_offset = Vector2(121.806, 397.783)
 
 [node name="pointsDisplay" parent="Buttons" instance=ExtResource("3_nndj1")]
-position = Vector2(133.111, -122.434)
+position = Vector2(133.502, -122)
 scale = Vector2(0.5, 0.5)
 value = 0
 paused = false
