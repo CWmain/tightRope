@@ -1,0 +1,279 @@
+[gd_scene load_steps=32 format=3 uid="uid://blwgd0c2ey4i1"]
+
+[ext_resource type="Script" uid="uid://4g4biufdcufj" path="res://UI/endGameMenu/end_game_menu.gd" id="1_l4xlx"]
+[ext_resource type="PackedScene" uid="uid://dmtcjhfkt1d7j" path="res://UI/animatedButton/animated_button.tscn" id="1_q7unb"]
+[ext_resource type="Texture2D" uid="uid://ce7vp3xrtxnv8" path="res://UI/play/play.png" id="2_cawm4"]
+[ext_resource type="PackedScene" uid="uid://d1ln1i6qe5gm1" path="res://UI/soundSettings/sound_settings.tscn" id="2_nndj1"]
+[ext_resource type="Texture2D" uid="uid://cccabvcnl4tn7" path="res://UI/score/score.png" id="3_l4xlx"]
+[ext_resource type="Texture2D" uid="uid://dgfyaoke7tkpp" path="res://UI/sounds/sounds.png" id="4_nndj1"]
+[ext_resource type="Texture2D" uid="uid://udn4xa5pwpmm" path="res://UI/quit/quit.png" id="5_clagb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb360"]
+atlas = ExtResource("2_cawm4")
+region = Rect2(0, 0, 834, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa8p6"]
+atlas = ExtResource("2_cawm4")
+region = Rect2(834, 0, 834, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyko5"]
+atlas = ExtResource("2_cawm4")
+region = Rect2(0, 550, 834, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycjr6"]
+atlas = ExtResource("2_cawm4")
+region = Rect2(834, 550, 834, 550)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ybsqk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb360")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa8p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyko5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycjr6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkqg6"]
+atlas = ExtResource("3_l4xlx")
+region = Rect2(0, 0, 939, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sai1o"]
+atlas = ExtResource("3_l4xlx")
+region = Rect2(939, 0, 939, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a78ch"]
+atlas = ExtResource("3_l4xlx")
+region = Rect2(0, 412, 939, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0t38"]
+atlas = ExtResource("3_l4xlx")
+region = Rect2(939, 412, 939, 412)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bi3ik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkqg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sai1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a78ch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0t38")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13rg2"]
+atlas = ExtResource("4_nndj1")
+region = Rect2(0, 0, 1325, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2iep"]
+atlas = ExtResource("4_nndj1")
+region = Rect2(1325, 0, 1325, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx562"]
+atlas = ExtResource("4_nndj1")
+region = Rect2(0, 400, 1325, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifin0"]
+atlas = ExtResource("4_nndj1")
+region = Rect2(1325, 400, 1325, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cejeq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13rg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2iep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx562")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifin0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7iry"]
+atlas = ExtResource("5_clagb")
+region = Rect2(823, 0, 823, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql06v"]
+atlas = ExtResource("5_clagb")
+region = Rect2(0, 0, 823, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov2xn"]
+atlas = ExtResource("5_clagb")
+region = Rect2(0, 412, 823, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd3c8"]
+atlas = ExtResource("5_clagb")
+region = Rect2(823, 412, 823, 412)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2vj3e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7iry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql06v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov2xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd3c8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_l4xlx"]
+resource_name = "gameEnd"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.14159, 1.5708, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_nndj1"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_clagb"]
+resource_name = "gameEndToSound"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5708, -3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SoundSettings:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.14159, 1.5708, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cb360"]
+_data = {
+&"RESET": SubResource("Animation_nndj1"),
+&"gameEnd": SubResource("Animation_l4xlx"),
+&"gameEndToSound": SubResource("Animation_clagb")
+}
+
+[node name="EndGameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l4xlx")
+
+[node name="SoundSettings" parent="." instance=ExtResource("2_nndj1")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.306763
+offset_top = 3.51184
+offset_right = -0.306763
+offset_bottom = 3.51184
+rotation = 3.14159
+pivot_offset = Vector2(10.9968, 320.695)
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = -183.0
+offset_right = 132.5
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+pivot_offset = Vector2(132.5, 507)
+
+[node name="Play" parent="Buttons" instance=ExtResource("1_q7unb")]
+custom_minimum_size = Vector2(166.8, 110)
+layout_mode = 2
+spriteFrames = SubResource("SpriteFrames_ybsqk")
+textureScale = 0.2
+
+[node name="Scores" parent="Buttons" instance=ExtResource("1_q7unb")]
+custom_minimum_size = Vector2(187.8, 82.4)
+layout_mode = 2
+spriteFrames = SubResource("SpriteFrames_bi3ik")
+textureScale = 0.2
+
+[node name="Sounds" parent="Buttons" instance=ExtResource("1_q7unb")]
+custom_minimum_size = Vector2(265, 80)
+layout_mode = 2
+spriteFrames = SubResource("SpriteFrames_cejeq")
+textureScale = 0.2
+
+[node name="Quit" parent="Buttons" instance=ExtResource("1_q7unb")]
+custom_minimum_size = Vector2(164.6, 82.4)
+layout_mode = 2
+spriteFrames = SubResource("SpriteFrames_2vj3e")
+textureScale = 0.2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cb360")
+}
+
+[connection signal="closeMenu" from="SoundSettings" to="." method="_on_sound_settings_close_menu"]
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/Scores" to="." method="_on_scores_pressed"]
+[connection signal="pressed" from="Buttons/Sounds" to="." method="_on_sounds_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]

@@ -22,6 +22,7 @@ class_name GameManager
 
 @export_category("Display")
 @export var pointsDisplay: PointsDisplay
+@export var endGameMenu: Control
 
 @export_category("Other")
 @export var walker: Walker
@@ -34,6 +35,7 @@ class_name GameManager
 
 var chanceToFire: float = 0.1
 var points: int = 0
+var gameRunning: bool = true
 
 signal newScore
 
@@ -62,8 +64,12 @@ func _on_game_start_delay_timeout() -> void:
 	earn_points.start()
 
 func endGame() -> void:
+	if !gameRunning:
+		return
 	earn_points.stop()
 	spawn_stuff.stop()
 	increment_chance_to_fire.stop()
+	endGameMenu.gameEndAnimation()
 	#walker.process_mode = Node.PROCESS_MODE_DISABLED
 	print("Game is ended do more stuff")
+	gameRunning = false

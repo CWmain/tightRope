@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b3upb7t2hdfk1"]
+[gd_scene load_steps=25 format=3 uid="uid://b3upb7t2hdfk1"]
 
 [ext_resource type="PackedScene" uid="uid://cl57ajdyrwmbx" path="res://objects/walker/walker.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://des41i0ea0vuf" path="res://scenes/main/main.gd" id="1_tefeu"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ddf0g3xhjme73" path="res://UI/background/doubleResCardboard.png" id="6_raeie"]
 [ext_resource type="PackedScene" uid="uid://de3xboh3elk77" path="res://objects/gameManager/game_manager.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cgxwpim6cajfw" path="res://objects/scissors/scissors.tscn" id="7_85g3d"]
+[ext_resource type="PackedScene" uid="uid://blwgd0c2ey4i1" path="res://UI/endGameMenu/end_game_menu.tscn" id="7_hxu8e"]
 [ext_resource type="Texture2D" uid="uid://di0m7qhsm0f2" path="res://objects/rope/editedRope.png" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cgsmcsdbsoqtg" path="res://objects/tape/tape.tscn" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://cwsyv3r2h7eui" path="res://UI/background/blurFloor.png" id="11_ouso4"]
@@ -256,6 +257,10 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_raeie")
 expand_mode = 2
 
+[node name="EndGameMenu" parent="Camera2D" instance=ExtResource("7_hxu8e")]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+
 [node name="Control2" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -328,7 +333,7 @@ position = Vector2(301, 718)
 scale = Vector2(0.1, 0.1)
 value = 0
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("topLeft", "topRight", "bottomLeft", "bottomRight", "pointsDisplay", "walker") instance=ExtResource("6_tefeu")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("topLeft", "topRight", "bottomLeft", "bottomRight", "pointsDisplay", "endGameMenu", "walker") instance=ExtResource("6_tefeu")]
 projectiles = Array[PackedScene]([ExtResource("6_o6xl0"), ExtResource("7_tipki"), ExtResource("7_85g3d")])
 metal = ExtResource("6_o6xl0")
 tape = ExtResource("7_tipki")
@@ -338,6 +343,7 @@ topRight = NodePath("../TopRightSpawner")
 bottomLeft = NodePath("../BottomLeftSpawner")
 bottomRight = NodePath("../BottomRightSpawner")
 pointsDisplay = NodePath("../pointsDisplay")
+endGameMenu = NodePath("../Camera2D/EndGameMenu")
 walker = NodePath("../Walker")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
