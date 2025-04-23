@@ -14,7 +14,7 @@ class_name Walker
 
 var bonusForce: float = 0
 var lastDirection: int = 0
-
+var falledEmmited: bool = false
 signal fallen
 
 func _physics_process(delta: float) -> void:
@@ -32,9 +32,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		right_sweat.emitting = false
 		left_sweat.emitting = false
-	
-	if rigid_body_2d.rotation > PI/2 || rigid_body_2d.rotation < -PI/2:
-		fallen.emit()	
+
+	if !falledEmmited and (rigid_body_2d.rotation > 2*PI/3 || rigid_body_2d.rotation < -2*PI/3):
+		fallen.emit()
+		falledEmmited = true
 	
 	#rigid_body_2d.apply_torque(2000)
 	if Input.is_action_pressed("Left"):

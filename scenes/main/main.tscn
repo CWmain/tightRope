@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b3upb7t2hdfk1"]
+[gd_scene load_steps=26 format=3 uid="uid://b3upb7t2hdfk1"]
 
 [ext_resource type="PackedScene" uid="uid://cl57ajdyrwmbx" path="res://objects/walker/walker.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://des41i0ea0vuf" path="res://scenes/main/main.gd" id="1_tefeu"]
@@ -168,9 +168,61 @@ tracks/8/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_hxu8e"]
+resource_name = "endGame"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walker:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(552, 683), Vector2(552, 1500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rope:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(540, 388), Vector2(540, -400)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rope:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pointsDisplay:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(818, 346), Vector2(818, 900)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_85g3d"]
 _data = {
 &"RESET": SubResource("Animation_tipki"),
+&"endGame": SubResource("Animation_hxu8e"),
 &"intro": SubResource("Animation_o6xl0")
 }
 
@@ -323,17 +375,17 @@ scale = Vector2(0.3, 0.3)
 value = 3
 paused = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_85g3d")
-}
-
 [node name="pointsDisplay" parent="." instance=ExtResource("6_choun")]
 position = Vector2(301, 718)
 scale = Vector2(0.1, 0.1)
 value = 0
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("topLeft", "topRight", "bottomLeft", "bottomRight", "pointsDisplay", "endGameMenu", "walker") instance=ExtResource("6_tefeu")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_85g3d")
+}
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("topLeft", "topRight", "bottomLeft", "bottomRight", "pointsDisplay", "endGameMenu", "animationPlayer", "walker") instance=ExtResource("6_tefeu")]
 projectiles = Array[PackedScene]([ExtResource("6_o6xl0"), ExtResource("7_tipki"), ExtResource("7_85g3d")])
 metal = ExtResource("6_o6xl0")
 tape = ExtResource("7_tipki")
@@ -344,6 +396,7 @@ bottomLeft = NodePath("../BottomLeftSpawner")
 bottomRight = NodePath("../BottomRightSpawner")
 pointsDisplay = NodePath("../pointsDisplay")
 endGameMenu = NodePath("../Camera2D/EndGameMenu")
+animationPlayer = NodePath("../AnimationPlayer")
 walker = NodePath("../Walker")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

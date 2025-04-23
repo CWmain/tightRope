@@ -18,6 +18,10 @@ class_name PointsDisplay
 		else:
 			playAnimation()
 
+@export var centered: bool = false:
+	set(value):
+		centered = value
+		updateScore()
 # Given a number we need to find each value
 # This can be done by % 10, then select the corresponding image and place on screen
 
@@ -52,3 +56,8 @@ func updateScore()->void:
 		newDigit.speed_scale = 0
 	newDigit.position.x = offset
 	add_child(newDigit)
+	# Center so half are two left and half to right
+	if centered:
+		var centerOffest: float = offset/2
+		for child in get_children():
+			child.position.x -= centerOffest

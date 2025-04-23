@@ -3,6 +3,9 @@ extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var mainMenu: PackedScene = load("res://scenes/mainMenu/main_menu.tscn")
+@onready var endGameMenuScore: PointsDisplay = $Buttons/pointsDisplay
+
+
 
 ## Called by game manager to trigger the game end animation
 func gameEndAnimation() -> void:

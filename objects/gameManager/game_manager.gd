@@ -23,6 +23,7 @@ class_name GameManager
 @export_category("Display")
 @export var pointsDisplay: PointsDisplay
 @export var endGameMenu: Control
+@export var animationPlayer: AnimationPlayer
 
 @export_category("Other")
 @export var walker: Walker
@@ -69,7 +70,10 @@ func endGame() -> void:
 	earn_points.stop()
 	spawn_stuff.stop()
 	increment_chance_to_fire.stop()
+	animationPlayer.play("endGame")
 	endGameMenu.gameEndAnimation()
+	endGameMenu.endGameMenuScore.value = points
+	
 	#walker.process_mode = Node.PROCESS_MODE_DISABLED
 	print("Game is ended do more stuff")
 	gameRunning = false
