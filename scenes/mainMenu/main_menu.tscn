@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://vrxcvmfp3ml"]
+[gd_scene load_steps=38 format=3 uid="uid://vrxcvmfp3ml"]
 
 [ext_resource type="Script" uid="uid://xt0g1varwnyg" path="res://scenes/mainMenu/main_menu.gd" id="1_8jkg5"]
 [ext_resource type="PackedScene" uid="uid://d1ln1i6qe5gm1" path="res://UI/soundSettings/sound_settings.tscn" id="2_0ma31"]
 [ext_resource type="Texture2D" uid="uid://cwsyv3r2h7eui" path="res://UI/background/blurFloor.png" id="2_biq0h"]
+[ext_resource type="PackedScene" uid="uid://c1y2ot0jxpwm1" path="res://particles/sweat/sweat.tscn" id="2_mb30r"]
 [ext_resource type="Texture2D" uid="uid://bgf2f5w8f4bg4" path="res://UI/background/towel.png" id="3_7st3g"]
 [ext_resource type="PackedScene" uid="uid://dmtcjhfkt1d7j" path="res://UI/animatedButton/animated_button.tscn" id="3_wfauu"]
 [ext_resource type="Texture2D" uid="uid://drcton3gljqab" path="res://UI/background/concret.png" id="4_11v51"]
@@ -218,7 +219,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8jkg5")
 
+[node name="sweat" parent="." instance=ExtResource("2_mb30r")]
+position = Vector2(569, 304)
+emitting = false
+one_shot = true
+
 [node name="BlueFloor" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -234,6 +241,7 @@ grow_vertical = 2
 texture = ExtResource("2_biq0h")
 
 [node name="Towel" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -249,6 +257,7 @@ grow_vertical = 2
 texture = ExtResource("3_7st3g")
 
 [node name="Concrete" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -264,6 +273,7 @@ grow_vertical = 2
 texture = ExtResource("4_11v51")
 
 [node name="Cardboard" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

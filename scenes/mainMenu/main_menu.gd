@@ -4,7 +4,12 @@ extends Control
 @onready var sound_settings: Control = $SoundSettings
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var sweat: CPUParticles2D = $sweat
+
 var play: PackedScene = preload("res://scenes/main/main.tscn")
+
+func _ready() -> void:
+	sweat.emitting = true
 
 func _on_play_pressed() -> void:
 	animation_player.play("MenuToPlay")
