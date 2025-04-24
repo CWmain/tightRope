@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://blwgd0c2ey4i1"]
+[gd_scene load_steps=38 format=3 uid="uid://blwgd0c2ey4i1"]
 
 [ext_resource type="Script" uid="uid://4g4biufdcufj" path="res://UI/endGameMenu/end_game_menu.gd" id="1_l4xlx"]
 [ext_resource type="PackedScene" uid="uid://dmtcjhfkt1d7j" path="res://UI/animatedButton/animated_button.tscn" id="1_q7unb"]
 [ext_resource type="Texture2D" uid="uid://ce7vp3xrtxnv8" path="res://UI/play/play.png" id="2_cawm4"]
+[ext_resource type="PackedScene" uid="uid://dbhxyghqkigt2" path="res://UI/scoreBoardMenu/score_board_menu.tscn" id="2_clagb"]
 [ext_resource type="PackedScene" uid="uid://d1ln1i6qe5gm1" path="res://UI/soundSettings/sound_settings.tscn" id="2_nndj1"]
 [ext_resource type="Texture2D" uid="uid://cccabvcnl4tn7" path="res://UI/score/score.png" id="3_l4xlx"]
 [ext_resource type="PackedScene" uid="uid://d4nhjb3el55ox" path="res://objects/pointsDisplay/points_display.tscn" id="3_nndj1"]
@@ -315,11 +316,63 @@ tracks/1/keys = {
 "values": [false, false]
 }
 
+[sub_resource type="Animation" id="Animation_ycjr6"]
+resource_name = "gameEndToScore"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScoreBoardMenu:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.99, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScoreBoardMenu:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-3.14159, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cb360"]
 _data = {
 &"RESET": SubResource("Animation_nndj1"),
 &"gameEnd": SubResource("Animation_l4xlx"),
 &"gameEndClockWise": SubResource("Animation_vyko5"),
+&"gameEndToScore": SubResource("Animation_ycjr6"),
 &"gameEndToSound": SubResource("Animation_clagb"),
 &"play": SubResource("Animation_cb360"),
 &"quit": SubResource("Animation_sa8p6")
@@ -333,6 +386,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l4xlx")
+
+[node name="ScoreBoardMenu" parent="." instance=ExtResource("2_clagb")]
+layout_mode = 1
+rotation = -3.14159
 
 [node name="SoundSettings" parent="." instance=ExtResource("2_nndj1")]
 layout_mode = 1
@@ -361,7 +418,7 @@ offset_right = 153.889
 offset_bottom = 292.434
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -3.14159
+rotation = 3.14159
 pivot_offset = Vector2(121.806, 397.783)
 
 [node name="pointsDisplay" parent="Buttons" instance=ExtResource("3_nndj1")]
@@ -404,6 +461,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_cb360")
 }
 
+[connection signal="closeScoreBoard" from="ScoreBoardMenu" to="." method="_on_score_board_menu_close_score_board"]
 [connection signal="closeMenu" from="SoundSettings" to="." method="_on_sound_settings_close_menu"]
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Buttons/Scores" to="." method="_on_scores_pressed"]

@@ -111,15 +111,15 @@ layout_mode = 2
 spriteFrames = SubResource("SpriteFrames_n3wlg")
 textureScale = 0.1
 
-[node name="ScoreUp" type="AnimatedSprite2D" parent="."]
-position = Vector2(274, 245)
+[node name="ScoreUp" type="AnimatedSprite2D" parent="VBoxContainer"]
+position = Vector2(-249.5, 213.5)
 rotation = -0.785397
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dn5q6")
 autoplay = "default"
 
-[node name="ScoreDown" type="AnimatedSprite2D" parent="."]
-position = Vector2(878, 245)
+[node name="ScoreDown" type="AnimatedSprite2D" parent="VBoxContainer"]
+position = Vector2(354.5, 213.5)
 rotation = 0.785398
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dn5q6")

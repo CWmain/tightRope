@@ -36,7 +36,10 @@ func _on_play_pressed() -> void:
 	animation_player.play("play")
 
 func _on_scores_pressed() -> void:
-	print("So score menu")
+	animation_player.play("gameEndToScore")
+
+func _on_score_board_menu_close_score_board() -> void:
+	animation_player.play("gameEndToScore", -1, -1, true)
 
 func _on_sounds_pressed() -> void:
 	animation_player.play("gameEndToSound")
