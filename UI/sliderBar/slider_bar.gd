@@ -38,8 +38,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if trackMouse and enabled:
-		if !monotone.playing:
-			monotone.play()
 		monotone.stream_paused = false
 		var width: float = custom_minimum_size.x
 		var localMouse: float = get_local_mouse_position().x
