@@ -162,7 +162,11 @@ func endGame() -> void:
 	spawn_stuff.stop()
 	increment_chance_to_fire.stop()
 	animationPlayer.play("endGame")
+	AudioController.playMenu()
 	endGameMenu.gameEndAnimation(walker.rigid_body_2d.rotation > 0)
 	endGameMenu.endGameMenuScore.value = points
 	saveScore()
 	gameRunning = false
+
+func _on_play_game_music_timeout() -> void:
+	AudioController.playGame()

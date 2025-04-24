@@ -9,6 +9,7 @@ extends Control
 var play: PackedScene = preload("res://scenes/main/main.tscn")
 
 func _ready() -> void:
+	AudioController.playMenu()
 	sweat.emitting = true
 	animation_player.play("Intro")
 

@@ -15,6 +15,10 @@ run/main_scene="uid://vrxcvmfp3ml"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioController="*res://music/audioController/audio_controller.tscn"
+
 [input]
 
 Left={
