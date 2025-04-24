@@ -21,6 +21,12 @@ func _on_sounds_pressed() -> void:
 func _on_sound_settings_close_menu() -> void:
 	animation_player.play("MenuToSound", -1, -1, true)
 
+func _on_scores_pressed() -> void:
+	animation_player.play("MenuToScore")
+
+func _on_score_board_menu_close_score_board() -> void:
+	animation_player.play("MenuToScore", -1, -1, true)
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		"MenuToPlay":

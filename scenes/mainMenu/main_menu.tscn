@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://vrxcvmfp3ml"]
+[gd_scene load_steps=37 format=3 uid="uid://vrxcvmfp3ml"]
 
 [ext_resource type="Script" uid="uid://xt0g1varwnyg" path="res://scenes/mainMenu/main_menu.gd" id="1_8jkg5"]
 [ext_resource type="PackedScene" uid="uid://d1ln1i6qe5gm1" path="res://UI/soundSettings/sound_settings.tscn" id="2_0ma31"]
 [ext_resource type="PackedScene" uid="uid://c1y2ot0jxpwm1" path="res://particles/sweat/sweat.tscn" id="2_mb30r"]
 [ext_resource type="PackedScene" uid="uid://dmtcjhfkt1d7j" path="res://UI/animatedButton/animated_button.tscn" id="3_wfauu"]
+[ext_resource type="PackedScene" uid="uid://dbhxyghqkigt2" path="res://UI/scoreBoardMenu/score_board_menu.tscn" id="4_11v51"]
 [ext_resource type="Texture2D" uid="uid://ce7vp3xrtxnv8" path="res://UI/play/play.png" id="4_82j8y"]
 [ext_resource type="Texture2D" uid="uid://dgfyaoke7tkpp" path="res://UI/sounds/sounds.png" id="4_m3keh"]
 [ext_resource type="Texture2D" uid="uid://cccabvcnl4tn7" path="res://UI/score/score.png" id="5_m3keh"]
@@ -345,11 +346,111 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_82j8y"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScoreBoardMenu:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScoreBoardMenu:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_kskfm"]
+resource_name = "MenuToScore"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenuButtons:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5708, -3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenuButtons/Play:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainMenuButtons/Sounds:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenuButtons/Scores:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.01, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ScoreBoardMenu:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.99, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ScoreBoardMenu:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.14159, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_621iq"]
 _data = {
 &"Intro": SubResource("Animation_7st3g"),
 &"MenuToPlay": SubResource("Animation_621iq"),
+&"MenuToScore": SubResource("Animation_kskfm"),
 &"MenuToSound": SubResource("Animation_m3keh"),
 &"RESET": SubResource("Animation_82j8y")
 }
@@ -384,11 +485,14 @@ grow_vertical = 2
 texture = ExtResource("6_88ij5")
 expand_mode = 2
 
+[node name="ScoreBoardMenu" parent="." instance=ExtResource("4_11v51")]
+layout_mode = 1
+rotation = 3.14159
+
 [node name="SoundSettings" parent="." instance=ExtResource("2_0ma31")]
 layout_mode = 1
 rotation = -3.14159
 pivot_offset = Vector2(576, 650)
-enabled = true
 
 [node name="MainMenuButtons" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -438,7 +542,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_621iq")
 }
 
+[connection signal="closeScoreBoard" from="ScoreBoardMenu" to="." method="_on_score_board_menu_close_score_board"]
 [connection signal="closeMenu" from="SoundSettings" to="." method="_on_sound_settings_close_menu"]
 [connection signal="pressed" from="MainMenuButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MainMenuButtons/Sounds" to="." method="_on_sounds_pressed"]
+[connection signal="pressed" from="MainMenuButtons/Scores" to="." method="_on_scores_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

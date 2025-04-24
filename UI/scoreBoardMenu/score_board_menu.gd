@@ -1,8 +1,16 @@
 extends Control
 
+@export var enabled: bool = false:
+	set(value):
+		enabled = value
+		if back == null:
+			return
+		setChildEnabled(value)
+
 @export var saveFileString: String = "user://scores.txt"
 
 @onready var list: VBoxContainer = $VBoxContainer/list
+@onready var back: Control = $VBoxContainer/Back
 
 var pointDisplay: PackedScene = preload("res://objects/pointsDisplay/points_display.tscn")
 
@@ -10,6 +18,9 @@ signal closeScoreBoard
 
 func _ready() -> void:
 	loadScores()
+
+func setChildEnabled(value: bool) -> void:
+	back.enabled = value
 
 func showScores():
 	removeListChildren()
@@ -33,13 +44,16 @@ func loadScores():
 
 	# Generate labels and append to list
 	for i in range(highScores.size()-1,-1, -1):
-		print(i)
 		var c: Control = Control.new()
 		var item: PointsDisplay = pointDisplay.instantiate()
 		item.centered = true
 		item.scale = Vector2(0.1,0.1)
 		item.value = highScores[i]
-		item.paused = false
+		
+		# Animate the highest score
+		if i == highScores.size()-1:
+			item.paused = false
+			
 		c.add_child(item)
 		c.custom_minimum_size = Vector2(100,50)
 		item.position = c.custom_minimum_size/2

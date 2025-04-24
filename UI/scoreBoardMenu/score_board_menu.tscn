@@ -84,6 +84,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(576, 648)
 script = ExtResource("1_kunf8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -123,3 +124,5 @@ rotation = 0.785398
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dn5q6")
 autoplay = "default"
+
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
