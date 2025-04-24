@@ -8,7 +8,11 @@ extends Control
 		setChildEnabled(value)
 
 @export var saveFileString: String = "user://scores.txt"
-
+@export var generateScoreDisplay: bool = false:
+	set(value):
+		generateScoreDisplay = value
+		if value:
+			showScores()
 @onready var list: VBoxContainer = $VBoxContainer/list
 @onready var back: Control = $VBoxContainer/Back
 

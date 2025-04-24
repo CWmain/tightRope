@@ -199,30 +199,6 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_tipki"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RightControls:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(710, 440)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LeftControls:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(400, 440)]
-}
 
 [sub_resource type="Animation" id="Animation_hxu8e"]
 resource_name = "endGame"
@@ -491,6 +467,7 @@ position = Vector2(1110, 440)
 [node name="Right" type="AnimatedSprite2D" parent="RightControls"]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_tbnf8")
+autoplay = "default"
 
 [node name="D" type="AnimatedSprite2D" parent="RightControls"]
 position = Vector2(0, 80)
