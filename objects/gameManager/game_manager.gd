@@ -27,6 +27,7 @@ class_name GameManager
 
 @export_category("Other")
 @export var walker: Walker
+@export var saveFileString: String = "user://scores.txt"
 
 
 @onready var earn_points: Timer = $EarnPoints
@@ -126,6 +127,34 @@ func _on_earn_points_timeout() -> void:
 func _on_game_start_delay_timeout() -> void:
 	earn_points.start()
 
+func saveScore():
+	var file = FileAccess.open(saveFileString, FileAccess.READ)
+	var stringFile: String
+	if (FileAccess.file_exists(saveFileString)):
+		file = FileAccess.open(saveFileString, FileAccess.READ)
+		stringFile = file.get_as_text()
+		file.close()
+	
+	# Get the highscore list
+	var highScores: Array[int]
+	if (stringFile.length() == 0):
+		highScores = [points]
+	else:
+		highScores = str_to_var(stringFile)
+		highScores.append(points)
+	
+	# Re-sort highscore list
+	highScores.sort()
+	
+	# Ensure only 5 Highscores are stored
+	if (highScores.size() > 10):
+		highScores.pop_front()
+	
+	# Save highscore list to file
+	file = FileAccess.open(saveFileString, FileAccess.WRITE)
+	file.store_line(var_to_str(highScores))
+	file.close()
+
 func endGame() -> void:
 	if !gameRunning:
 		return
@@ -135,5 +164,5 @@ func endGame() -> void:
 	animationPlayer.play("endGame")
 	endGameMenu.gameEndAnimation(walker.rigid_body_2d.rotation > 0)
 	endGameMenu.endGameMenuScore.value = points
-	
+	saveScore()
 	gameRunning = false
