@@ -2,8 +2,10 @@ extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var walker: Node2D = $Walker
+@onready var move_player_animation: AnimationPlayer = $MovePlayerAnimation
 
 func _ready() -> void:
+	move_player_animation.play("playerIntro")
 	animation_player.play("intro")
 	AudioController.pauseMusic()
 
